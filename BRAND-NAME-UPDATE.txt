@@ -1,0 +1,9 @@
+HEADER BRAND UPDATE
+
+The header brand text has been changed from NOVA to LLeveLL in:
+- Desktop full header
+- Desktop compact header
+- Mobile menu header
+- Accessibility label
+
+No other page copy or footer branding was changed.

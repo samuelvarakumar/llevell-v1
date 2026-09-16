@@ -1,0 +1,6 @@
+UI/UX brand-logo correction
+
+The UI/UX orbit now uses corrected local assets for:
+Figma, Sketch, Principle, Miro, Envato and Adobe.
+
+Scroll, hover, click and selected-logo animations remain enabled.

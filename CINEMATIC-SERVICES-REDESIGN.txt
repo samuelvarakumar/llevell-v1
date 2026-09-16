@@ -1,0 +1,11 @@
+The previous ring/service carousel has been replaced by a cinematic five-part services showcase.
+
+Services:
+01 UI / UX Design
+02 Web Design & Development
+03 App Design & Development
+04 Digital Platforms
+05 Growth & Evolution
+
+The section uses scroll-controlled transitions, interactive pointer parallax, oversized typography,
+and custom 3D interface/tool sculptures.

@@ -1,0 +1,9 @@
+Polished Three.js app product portal
+
+Updated:
+- src/components/AppsShowcase.jsx
+- src/components/AppsShowcase3D.jsx
+- src/styles.css
+
+The Apps icon now opens a focused 3D device carousel rather than a generic card constellation.
+Edit the apps array at the top of src/components/AppsShowcase.jsx to add real app names, descriptions and links.

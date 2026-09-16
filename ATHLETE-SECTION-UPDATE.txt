@@ -1,0 +1,16 @@
+ATHLETE IMAGE EXPANSION SECTION
+
+Updated files:
+- src/sections/Accuracy.jsx
+- src/styles.css
+- public/athlete-expansion.webp
+
+Behaviour:
+- Rounded full-width image panel
+- Expands smoothly as it enters the viewport
+- Large left-aligned athlete headline
+- Right-side AI insight copy and Learn more CTA
+- Down-arrow cue
+- Responsive tablet and mobile layout
+
+The included reference image is a temporary local asset from the public reference site. Replace public/athlete-expansion.webp with your own licensed brand image before production while keeping the same filename.

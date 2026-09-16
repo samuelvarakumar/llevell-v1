@@ -1,0 +1,34 @@
+NOVA RING WEBSITE — WINDOWS START GUIDE
+=======================================
+
+IMPORTANT:
+You must run the commands from the folder that contains package.json.
+
+Your current prompt already showed this correct folder:
+C:\Users\Samuel\Downloads\nova-ring-site\nova-ring-site>
+
+OPTION 1 — AUTOMATIC FIX
+------------------------
+Right-click FIX-AND-RUN.ps1 and choose "Run with PowerShell",
+or run this command inside the project folder:
+
+powershell -ExecutionPolicy Bypass -File .\FIX-AND-RUN.ps1
+
+OPTION 2 — MANUAL FIX
+---------------------
+Run these commands inside the project folder:
+
+Ctrl + C
+Remove-Item -Recurse -Force node_modules
+Remove-Item -Force package-lock.json
+npm install
+npm run dev
+
+Then open:
+http://localhost:5173
+
+Do NOT run:
+cd nova-ring-site
+
+when PowerShell already shows that you are inside:
+...\nova-ring-site\nova-ring-site>

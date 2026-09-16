@@ -1,0 +1,10 @@
+HEADER / HERO STRUCTURE UPDATE
+
+The Header component is now rendered inside src/sections/Hero.jsx.
+At the top of the page it is part of the same continuous hero background.
+After the hero has been passed, the component switches to the compact fixed state.
+
+Updated files:
+- src/App.jsx
+- src/sections/Hero.jsx
+- src/styles.css

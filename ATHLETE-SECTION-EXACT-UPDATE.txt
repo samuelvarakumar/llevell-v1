@@ -1,0 +1,13 @@
+ATHLETE IMAGE-EXPANSION SECTION — EXACT REBUILD
+
+Updated files:
+- src/sections/Accuracy.jsx
+- src/styles.css
+- public/athlete-expansion.webp
+
+What changed:
+- Added a true sticky scroll scene instead of a simple in-view scale.
+- Final panel is exactly viewport-sized with 18px side margins and 20px top/bottom margins.
+- Image is anchored to the top so the athlete's joined hands remain visible.
+- Corrected heading size, line breaks, right-copy width, CTA size, overlay, and bottom cue.
+- Text appears only after the image has nearly completed its expansion.

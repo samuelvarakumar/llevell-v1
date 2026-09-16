@@ -1,0 +1,2 @@
+The centre circular service badge has been removed from the services orbit.
+The 3D ring and tool-logo interactions remain active.

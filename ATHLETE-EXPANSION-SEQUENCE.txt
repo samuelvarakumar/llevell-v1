@@ -1,0 +1,18 @@
+ATHLETE SECTION — CORRECT SCROLL SEQUENCE
+
+Desktop initial state:
+- Dark rounded section fills the viewport with an inset margin.
+- Athlete photograph starts as a centred panoramic frame:
+  width 72%, height 63%, left 14%, top 18.5%.
+- Headline and right-side CTA remain anchored to the outer section.
+- Fine horizontal and vertical construction lines are visible.
+
+While scrolling:
+- The scene remains sticky.
+- The photograph grows outward in all four directions.
+- The photograph reaches 100% width and height of the rounded section.
+- Construction lines and the BETTER PRECISION label fade away.
+- Text does not scale with the photograph.
+
+Mobile:
+- Uses a normal full-image card without the long sticky expansion.

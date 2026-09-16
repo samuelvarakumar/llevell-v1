@@ -1,0 +1,11 @@
+LLeveLL adaptive logo fix
+
+The wordmark is now rendered outside the fixed header stacking context.
+This allows CSS mix-blend-mode: difference to compare against the actual
+page content behind it. It appears dark on light backgrounds and white
+on black/dark backgrounds.
+
+Run:
+  npm run dev -- --host 0.0.0.0
+
+Then hard refresh with Ctrl + F5.

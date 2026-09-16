@@ -1,0 +1,27 @@
+LLeveLL 3D LOGO HERO UPDATE
+===========================
+
+The hero smart ring has been replaced with a procedural Three.js version of the supplied LLeveLL mark.
+
+Effects included:
+- Fourteen rounded 3D signal cells
+- Staggered assembly animation on page load
+- Ceramic white faces with graphite depth
+- Acid-lime illuminated inner layer
+- Individual cursor depth response
+- Soft automatic floating motion
+- Click-triggered logo pulse/scatter
+- Scroll-controlled separation, rotation and lift
+- Orbiting signal dust particles
+- Mobile and reduced-motion optimizations
+
+The original uploaded logo is kept at:
+public/llevell-logo-mark.png
+
+Main new files:
+src/components/LogoMark3D.jsx
+src/components/LogoCanvas.jsx
+
+Updated file:
+src/sections/Hero.jsx
+src/styles.css

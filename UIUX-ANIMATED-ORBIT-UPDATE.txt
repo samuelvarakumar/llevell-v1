@@ -1,0 +1,16 @@
+LLEVELL — UI/UX ANIMATED TOOL ORBIT UPDATE
+
+Replace these files in your project:
+- src/sections/RingLab.jsx
+- src/components/ToolLogo.jsx
+- src/styles.css
+
+UI/UX slide tools:
+Figma, Sketch, Principle, Miro, Envato and Adobe.
+
+Interaction:
+- Scrolling rotates the tool orbit.
+- Each logo remains upright while orbiting.
+- Hover lifts and enlarges a logo.
+- Clicking selects the logo, brings it forward, adds a pulse/glow and updates the centre label.
+- Clicking the selected logo again deselects it.

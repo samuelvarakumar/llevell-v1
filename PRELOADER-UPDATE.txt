@@ -1,0 +1,18 @@
+LLEVELL CINEMATIC PRELOADER
+
+Added:
+- src/components/Preloader.jsx
+- src/components/Preloader.css
+
+Integrated in src/App.jsx.
+
+Behaviour:
+- Full-screen coded preloader on initial page load.
+- Real Three.js calibration tunnel with layered rings, moving particles, warm signal nodes and pointer parallax.
+- LLeveLL wordmark assembles letter-by-letter.
+- Dynamic 000-100 progress display.
+- Scroll locked while loading.
+- Cinematic split-gate reveal into the website.
+- Respects prefers-reduced-motion.
+
+No static preloader image is used.

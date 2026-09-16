@@ -1,0 +1,12 @@
+NEXT-SECTION HEADER TRIGGER UPDATE
+==================================
+
+The desktop header now changes to its compact state when the next section
+(#fitness) reaches approximately 39% of the viewport height. This matches the
+reference behaviour where part of the hero is still visible during the change.
+
+When scrolling upward, the full header returns after the next section moves
+below approximately 52% of the viewport. The separate thresholds prevent
+flickering around the transition point.
+
+The existing delayed and staged CSS animation remains enabled.

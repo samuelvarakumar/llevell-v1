@@ -1,0 +1,10 @@
+Smooth motion update:
+- continuous unwrapped carousel index instead of snapping between fixed slots
+- smooth interpolation for position, rotation, scale, opacity and depth
+- damped mouse movement and hover response
+- improved wheel/trackpad accumulation
+- lighter shared geometry and textures
+- reduced portal and particle complexity
+- lower maximum pixel ratio
+- removed expensive animated full-screen grain, clip-path and canvas blur transitions
+- smooth entering and exiting app copy

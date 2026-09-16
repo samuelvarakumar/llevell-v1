@@ -1,0 +1,21 @@
+AI APPROACH REDESIGN
+
+Replaced the old Heart section with a new AI Approach section designed to be practical, premium, and code-native.
+
+New files:
+- src/sections/AIApproach.jsx
+- src/sections/AIApproach.css
+
+Updated:
+- src/App.jsx
+
+Design direction:
+- Editorial headline and intro
+- Four AI operating principles
+- Interactive AI workflow panel
+- Real Three.js constellation/signal field used as subtle background depth
+- Capability cards for Research, Design, Development, Automation
+- Human-led / AI-assisted positioning
+- Responsive desktop/tablet/mobile layout
+
+No static AI design image is used.

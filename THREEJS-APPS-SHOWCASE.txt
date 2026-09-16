@@ -1,0 +1,29 @@
+THREE.JS APPS SHOWCASE
+
+What changed
+- Replaced the CSS-only app card constellation with a real Three.js scene.
+- Four floating 3D app panels orbit a central illuminated hub.
+- Animated connection beams, particles, depth, lighting and camera parallax.
+- Hover or click a 3D panel to select it.
+- The selected app details appear in the lower information panel.
+- Responsive Three.js layout for desktop and mobile.
+
+App content
+Edit the `apps` array at the top of:
+  src/components/AppsShowcase.jsx
+
+Replace title, eyebrow, description, status and href for each app.
+
+Files changed
+- src/components/AppsShowcase.jsx
+- src/components/AppsShowcase3D.jsx
+- src/styles.css
+
+Dependencies
+No dependency changes are required. The project already includes:
+- three
+- @react-three/fiber
+
+Run
+  npm install
+  npm run dev -- --host 0.0.0.0

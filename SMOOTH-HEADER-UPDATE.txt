@@ -1,0 +1,14 @@
+SMOOTH HEADER UPDATE
+
+The desktop header now:
+- waits 180ms after passing the hero before collapsing;
+- uses separate enter/exit scroll boundaries to prevent flicker;
+- collapses the white navigation over 780ms;
+- brings in the menu tile after the navigation has started closing;
+- reverses the sequence smoothly while scrolling upward.
+
+Replace these files in an existing project:
+1. src/components/Header.jsx
+2. src/styles.css
+
+Then stop and restart Vite and hard-refresh the browser.

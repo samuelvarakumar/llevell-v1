@@ -1,0 +1,16 @@
+FIX INCLUDED
+============
+
+The previous build loaded a blank cream page because JSX was being transformed
+with React.createElement, but React was not imported inside each JSX module.
+
+This package adds the required React import to every JSX file.
+
+RUN:
+1. Open PowerShell in this folder.
+2. npm install
+3. npm run dev
+4. Open the Local URL shown by Vite.
+
+For an existing extracted copy, replace its src folder with the src folder from
+this corrected package.

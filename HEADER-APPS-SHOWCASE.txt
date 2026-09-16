@@ -1,0 +1,15 @@
+HEADER APPS SHOWCASE
+
+The apps icon now opens a full-screen cinematic application constellation.
+
+Features:
+- Circular reveal begins from the header app icon
+- Four application cards fan outward from a central hub
+- Animated connection lines and orbital paths
+- Hover changes the selected application in the centre
+- Mouse parallax on desktop
+- Mobile stacked-card layout
+- Escape key and close button support
+
+Edit app content at the top of:
+src/components/AppsShowcase.jsx

@@ -1,0 +1,1 @@
+Bag icon replaced with an animated apps-grid icon. The cart badge was removed and the CTA now reads Our apps.

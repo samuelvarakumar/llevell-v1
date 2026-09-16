@@ -1,0 +1,1 @@
+Services section typography restored to Manrope/DM Sans. Equal slide sizes and smooth ring motion are unchanged.

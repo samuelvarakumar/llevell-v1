@@ -1,0 +1,18 @@
+SENSIQ-STYLE TWO-STATE HEADER UPDATE
+
+At the very top of the page:
+- NOVA wordmark on the left
+- Black 80x80 Home square
+- Full white navigation panel
+- Overview / Fitness / Sleep / Heart divided by vertical lines
+- Cart icon with 0 badge
+- Black Shop now button
+
+After the first hero section has been completely scrolled past:
+- NOVA wordmark stays visible
+- Black Home square stays visible
+- Full navigation panel collapses
+- White 80x80 hamburger menu square appears
+
+The switch is controlled by the bottom edge of #overview (the Hero section),
+not by an arbitrary small scroll amount.

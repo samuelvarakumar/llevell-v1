@@ -1,0 +1,8 @@
+Smooth ring motion update
+
+- Continuous per-slide Three.js progress; ring animations no longer reset when the active slide changes.
+- Overlapping scene crossfades instead of abrupt scene switching.
+- Damped assembly, scale, depth, rotation and pointer movement.
+- Preserved each material's original opacity while crossfading.
+- Reduced desktop pixel ratio for steadier frame rates.
+- Smoother scroll spring and text/tool transitions.

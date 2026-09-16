@@ -1,0 +1,12 @@
+EXPANDABLE COMPACT HEADER UPDATE
+
+Desktop behaviour:
+1. The header becomes compact when the next section reaches the configured trigger line.
+2. Compact Home and Menu tiles are reduced to 66px.
+3. Clicking the compact Menu tile expands the complete navigation at the current scroll position.
+4. The first intentional scroll collapses the header again.
+5. Mobile behaviour is unchanged and continues to open the full-screen mobile menu.
+
+Updated files:
+- src/components/Header.jsx
+- src/styles.css

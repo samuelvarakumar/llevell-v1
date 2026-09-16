@@ -1,0 +1,15 @@
+AI APPROACH — THREE.JS ENHANCEMENT
+
+The clean AI workflow redesign has been preserved.
+
+Added real Three.js elements:
+- dimensional metallic halo rings behind the workflow panel
+- animated node network
+- moving glowing data packets following curved paths
+- floating octahedral depth chips
+- layered depth discs / ring accents
+- warm + cool dynamic lighting
+- subtle pointer parallax on the complete 3D field
+- fog/depth treatment so the canvas feels spatial rather than flat
+
+No static AI artwork is used.

@@ -1,0 +1,1 @@
+Exact highlighted L from uploaded logo: tiles (1,0), (1,1), (1,2), and (2,2). Bottom row is not highlighted.

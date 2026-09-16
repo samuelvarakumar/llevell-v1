@@ -1,0 +1,27 @@
+LLeveLL THREE.JS UPDATE
+=======================
+
+Added:
+- Procedural 3D smart ring built with Three.js / React Three Fiber
+- Mouse-follow movement
+- Automatic slow rotation
+- Scroll-controlled rotation, scale and position
+- Physical metal materials and studio reflections
+- Studio lights and contact shadows
+- Exploded shell / liner / sensor view
+- Titanium, graphite and soft-gold finish selector
+- Sticky multi-chapter product transition section
+- 3D ring in the hero and heart-health sections
+
+RUN ON WINDOWS
+--------------
+1. Open PowerShell inside this folder.
+2. Stop any old Vite server with Ctrl + C.
+3. Run:
+
+   npm install
+   npm run dev -- --host 0.0.0.0
+
+4. Open the URL printed by Vite.
+
+No GLB file is required. The included ring is generated procedurally. A production GLB model can replace it later while keeping the same Canvas, lighting, scroll and material controls.

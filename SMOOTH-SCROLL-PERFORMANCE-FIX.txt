@@ -1,0 +1,17 @@
+LLeveLL smooth-scroll and Three.js performance update
+
+What changed:
+1. Added Lenis smooth scrolling and anchor handling.
+2. Paused every Three.js canvas when it is outside the viewport.
+3. Reduced device-pixel ratio and disabled antialiasing on smaller screens.
+4. Removed expensive real-time shadow rendering.
+5. Reduced 3D geometry segment counts while preserving the visual shape.
+6. Replaced 42 separate groove meshes with one instanced mesh.
+7. Removed React state updates for every scroll tick in the exploded-view section.
+8. Stopped smooth page scrolling while the shop drawer is open.
+
+Run:
+  npm install
+  npm run dev -- --host 0.0.0.0
+
+Then hard-refresh with Ctrl + F5.

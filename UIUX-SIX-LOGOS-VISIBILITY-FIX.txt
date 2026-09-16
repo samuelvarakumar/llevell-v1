@@ -1,0 +1,2 @@
+All six UI/UX logos are now kept inside the visible orbit during scrolling and rotation.
+Figma, Sketch, Principle, Miro, Envato and Adobe.

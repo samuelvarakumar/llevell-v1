@@ -1,0 +1,17 @@
+SCROLLING HEADER FIX
+====================
+
+The header is now rendered as a fixed overlay from App.jsx.
+It does not occupy a separate section or add height above the hero.
+
+Desktop behaviour:
+1. While the first hero section is visible, the full header is shown.
+2. When the bottom of #overview reaches 104px from the viewport top,
+   the full white navigation panel collapses.
+3. The logo and black Home square remain, and a white menu square appears.
+4. Scrolling back into the hero restores the full header.
+
+Files changed:
+- src/App.jsx
+- src/sections/Hero.jsx
+- src/styles.css

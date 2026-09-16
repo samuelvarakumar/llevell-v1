@@ -1,0 +1,8 @@
+The service ring geometry was rebuilt to match the approved concept more closely.
+
+Key correction:
+- Replaced round TorusGeometry tubes with flat, extruded, bevelled annular sectors.
+- UI/UX ring now has an exact vertical half split: left construction wireframe, right polished plate.
+- Added a wide flat band, inner neon rim, outer highlight, design guides, anchors and vertical divider.
+- Product Development ring now uses irregular, bevelled plate modules with real gaps and assembly motion.
+- Camera was moved closer and flattened to match the front-facing concept composition.

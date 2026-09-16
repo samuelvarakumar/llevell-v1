@@ -1,0 +1,1 @@
+All four service slides now reserve identical copy-area dimensions so title and description length no longer changes the visible layout size.

@@ -1,0 +1,9 @@
+CINEMATIC RING SERVICES UPDATE
+
+The services section now has four scroll-controlled slides:
+01 UI & UX Design — half wireframe / half polished ring.
+02 Product Development — segmented ring assembling and compiling.
+03 Branding — identity spectrum ring.
+04 Marketing — search radar ring.
+
+The ring visuals are generated in Three.js with @react-three/fiber. No section screenshot is used.

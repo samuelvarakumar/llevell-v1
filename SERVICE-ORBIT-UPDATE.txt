@@ -1,0 +1,13 @@
+LLeveLL service orbit update
+
+Replace these files in your project:
+1. src/sections/RingLab.jsx
+2. src/components/ToolLogo.jsx
+3. src/styles.css
+
+The original clean 3D ring is retained.
+Slide 1 shows UI/UX tool logos.
+Slide 2 shows coding technology logos.
+Slides 3-5 show app, platform and growth technology logos.
+
+No image files and no new npm packages are required.

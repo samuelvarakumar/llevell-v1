@@ -1,0 +1,1368 @@
+.about-console {
+  position: relative;
+  height: 310svh;
+  background:
+    radial-gradient(80% 100% at 50% 0%, rgba(255,255,255,.82), transparent 65%),
+    #ecebe5;
+  color: #0d0f0d;
+}
+
+.about-console__sticky {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(420px, .78fr);
+  align-items: center;
+  gap: clamp(56px, 7vw, 130px);
+  padding: 7vh 5vw;
+  overflow: hidden;
+}
+
+.about-console__copy {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.about-console__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: clamp(36px, 4vw, 62px);
+  color: #74796f;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .16em;
+}
+
+.about-console__eyebrow i {
+  width: 44px;
+  height: 1px;
+  background: rgba(13,15,13,.22);
+}
+
+.about-console h2 {
+  margin: 0;
+  max-width: 930px;
+  font: 400 clamp(58px, 6.5vw, 108px)/.88 'Manrope', sans-serif;
+  letter-spacing: -.071em;
+}
+
+.about-console h2 em {
+  display: inline-block;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  color: transparent;
+  -webkit-text-stroke: 1px #0d0f0d;
+}
+
+.about-console__lead {
+  max-width: 610px;
+  margin: clamp(36px, 3.5vw, 58px) 0 0;
+  color: #555b52;
+  font-size: clamp(15px, 1.05vw, 18px);
+  line-height: 1.55;
+}
+
+.about-console__facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: clamp(46px, 5vw, 76px);
+  border-top: 1px solid rgba(13,15,13,.15);
+  border-bottom: 1px solid rgba(13,15,13,.15);
+}
+
+.about-console__facts > div {
+  padding: 22px 18px 24px 0;
+}
+
+.about-console__facts > div + div {
+  padding-left: 18px;
+  border-left: 1px solid rgba(13,15,13,.13);
+}
+
+.about-console__facts span {
+  display: block;
+  color: #90958c;
+  font-size: 9px;
+  letter-spacing: .14em;
+}
+
+.about-console__facts b {
+  display: block;
+  margin-top: 14px;
+  font-size: 11px;
+  letter-spacing: .12em;
+}
+
+.about-console__facts p {
+  margin: 9px 0 0;
+  color: #666c63;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* -------------------------------------------------------
+   DEVICE / STUDIO CONSOLE
+   ------------------------------------------------------- */
+.studio-console-wrap {
+  position: relative;
+  z-index: 3;
+  justify-self: end;
+  width: min(100%, 540px);
+  will-change: transform;
+}
+
+.studio-console {
+  position: relative;
+  width: 100%;
+  aspect-ratio: .62;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.95);
+  border-radius: 56px;
+  background:
+    linear-gradient(145deg, #eef2f3 0%, #dbe2e5 52%, #cfd9de 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.96),
+    inset 0 -1px 0 rgba(100,117,130,.16),
+    0 38px 90px rgba(72,87,98,.21),
+    0 7px 18px rgba(72,87,98,.09);
+}
+
+.studio-console__metal-noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .19;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,.22) 0 1px,
+      rgba(122,138,150,.08) 1px 2px,
+      transparent 2px 4px
+    );
+  mix-blend-mode: soft-light;
+}
+
+.studio-console__topbar {
+  position: relative;
+  z-index: 2;
+  height: 8.3%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6.4%;
+}
+
+.studio-console__brand {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #8f9aa2;
+}
+
+.studio-console__brand .brand-mark {
+  width: 18px;
+  height: 18px;
+  opacity: .78;
+}
+
+.studio-console__brand strong {
+  font: 600 15px/1 'Manrope', sans-serif;
+  letter-spacing: -.04em;
+}
+
+.studio-console__brand small {
+  margin-left: 2px;
+  color: #a9b1b7;
+  font-size: 7px;
+  letter-spacing: .14em;
+}
+
+.studio-console__signal {
+  display: flex;
+  gap: 2px;
+}
+
+.studio-console__signal i {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #7e8992;
+}
+
+.studio-console__status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #939da5;
+}
+
+.studio-console__screen-shell {
+  position: relative;
+  z-index: 2;
+  width: 86%;
+  height: 57%;
+  margin: 0 auto;
+  padding: 3.2%;
+  border-radius: 38px;
+  background: #0d0f10;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.03),
+    inset 0 0 30px rgba(0,0,0,.8),
+    0 7px 13px rgba(50,59,63,.28),
+    0 2px 4px rgba(255,255,255,.25);
+}
+
+.studio-console__screen-glow {
+  position: absolute;
+  inset: 6%;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(200,255,69,.14), transparent 52%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.studio-console__screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 50% 8%, #1b1d1f 0%, #101214 45%, #090b0c 100%);
+}
+
+.studio-console__screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .08;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgba(255,255,255,.09) 0 1px,
+      transparent 1px 3px
+    );
+}
+
+.studio-console__screen-state {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  color: #f4f5f4;
+  will-change: transform, opacity;
+}
+
+.studio-console__screen-state--intro,
+.studio-console__screen-state--final {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.studio-console__screen-kicker {
+  color: rgba(255,255,255,.38);
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: .26em;
+}
+
+.studio-console__screen-state h3 {
+  margin: 18px 0 0;
+  font: 500 clamp(28px, 2.2vw, 40px)/.92 'Manrope', sans-serif;
+  letter-spacing: -.05em;
+}
+
+.studio-console__screen-state p {
+  margin: 16px 0 0;
+  color: rgba(255,255,255,.33);
+  font-size: 7px;
+  line-height: 1.5;
+  letter-spacing: .19em;
+}
+
+.studio-console__screen-state--image {
+  justify-content: flex-end;
+}
+
+.studio-console__screen-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.studio-console__screen-image--one {
+  object-position: 49% 42%;
+  filter: saturate(.78) contrast(1.02) brightness(.76);
+  transform: scale(1.04);
+}
+
+.studio-console__screen-image--two {
+  object-position: 58% 10%;
+  filter: grayscale(1) contrast(1.08) brightness(.67);
+  transform: scale(1.22);
+}
+
+.studio-console__screen-grid {
+  position: absolute;
+  inset: 0;
+  opacity: .26;
+  background-image:
+    linear-gradient(rgba(200,255,69,.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,255,69,.22) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(to top, #000, transparent 88%);
+}
+
+.studio-console__screen-caption {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-end;
+  padding: 22px;
+  background:
+    linear-gradient(to top, rgba(6,8,9,.95), rgba(6,8,9,.72), transparent);
+}
+
+.studio-console__screen-caption span {
+  flex: none;
+  color: #c8ff45;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: .18em;
+}
+
+.studio-console__screen-caption b {
+  max-width: 180px;
+  text-align: right;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.studio-console__screen-state--final h3 {
+  color: #c8ff45;
+}
+
+.studio-console__screen-bars {
+  width: 58%;
+  margin-top: 24px;
+  display: grid;
+  gap: 6px;
+}
+
+.studio-console__screen-bars span {
+  display: block;
+  width: var(--w);
+  height: 2px;
+  background: rgba(200,255,69,.55);
+}
+
+.studio-console__controls {
+  position: relative;
+  z-index: 2;
+  height: 34.7%;
+  display: grid;
+  grid-template-columns: 1fr 1.8fr 1fr;
+  align-items: center;
+  padding: 0 7.5%;
+}
+
+.studio-console__power,
+.studio-console__back {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+}
+
+.studio-console__power i {
+  display: block;
+  width: 9px;
+  height: 54px;
+  border-radius: 999px;
+  background:
+    linear-gradient(#ff6b21, #ff3e13);
+  box-shadow:
+    0 0 12px rgba(255,81,24,.52),
+    inset 0 0 0 1px rgba(255,255,255,.18);
+}
+
+.studio-console__power span,
+.studio-console__back span {
+  color: #9ba5ac;
+  font-size: 6px;
+  font-weight: 600;
+  letter-spacing: .2em;
+}
+
+.studio-console__back i {
+  width: 10px;
+  height: 38px;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, #69747d, #b2bac0, #616b74);
+  box-shadow:
+    0 3px 8px rgba(50,60,66,.25),
+    inset 0 0 0 1px rgba(255,255,255,.2);
+}
+
+.studio-console__dial {
+  justify-self: center;
+  width: 78%;
+  aspect-ratio: 1;
+  will-change: transform;
+}
+
+.studio-console__dial-ring {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 35%, #f5f7f8 0%, #e3e8eb 44%, #c9d2d7 100%);
+  border: 1px solid rgba(123,139,150,.27);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.95),
+    inset 0 -8px 18px rgba(117,132,142,.15),
+    0 14px 25px rgba(91,105,114,.17);
+}
+
+.studio-console__dial-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 48%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 28%, #fff 0%, #edf0f2 55%, #d5dde1 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.95),
+    0 6px 12px rgba(91,105,114,.12);
+}
+
+.studio-console__dial-core span {
+  color: #79848b;
+  font: 500 21px/1 'Manrope', sans-serif;
+}
+
+.studio-console__dial-icon {
+  position: absolute;
+  color: #8a959c;
+  font-size: 10px;
+}
+
+.studio-console__dial-icon--top {
+  left: 50%;
+  top: 8%;
+  transform: translateX(-50%);
+}
+
+.studio-console__dial-icon--right {
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.studio-console__dial-icon--bottom {
+  left: 50%;
+  bottom: 7%;
+  transform: translateX(-50%);
+}
+
+.studio-console__dial-icon--left {
+  left: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.studio-console-shadow {
+  position: absolute;
+  z-index: -1;
+  left: 8%;
+  right: 8%;
+  bottom: -3%;
+  height: 7%;
+  border-radius: 50%;
+  background: rgba(83,97,106,.24);
+  filter: blur(30px);
+}
+
+@media (max-width: 1180px) {
+  .about-console__sticky {
+    grid-template-columns: minmax(0, 1fr) minmax(360px, .72fr);
+    gap: 50px;
+  }
+
+  .about-console h2 {
+    font-size: clamp(54px, 6.2vw, 82px);
+  }
+
+  .studio-console-wrap {
+    width: min(100%, 465px);
+  }
+}
+
+@media (max-width: 900px) {
+  .about-console {
+    height: auto;
+  }
+
+  .about-console__sticky {
+    position: relative;
+    min-height: auto;
+    grid-template-columns: 1fr;
+    padding: 100px 22px 90px;
+    overflow: visible;
+  }
+
+  .about-console__copy {
+    max-width: 760px;
+  }
+
+  .about-console h2 {
+    font-size: clamp(54px, 10vw, 82px);
+  }
+
+  .studio-console-wrap {
+    justify-self: center;
+    width: min(100%, 520px);
+    margin-top: 40px;
+    transform: none !important;
+  }
+
+  .about-console__facts {
+    max-width: 760px;
+  }
+}
+
+@media (max-width: 620px) {
+  .about-console__sticky {
+    padding-inline: 18px;
+  }
+
+  .about-console__eyebrow {
+    justify-content: space-between;
+  }
+
+  .about-console__eyebrow i {
+    flex: 1;
+    width: auto;
+  }
+
+  .about-console h2 {
+    font-size: clamp(48px, 14vw, 70px);
+  }
+
+  .about-console__facts {
+    grid-template-columns: 1fr;
+  }
+
+  .about-console__facts > div,
+  .about-console__facts > div + div {
+    padding: 17px 0;
+    border-left: 0;
+    border-bottom: 1px solid rgba(13,15,13,.11);
+  }
+
+  .about-console__facts > div:last-child {
+    border-bottom: 0;
+  }
+
+  .studio-console {
+    border-radius: 38px;
+  }
+
+  .studio-console__screen-shell {
+    border-radius: 28px;
+  }
+
+  .studio-console__screen {
+    border-radius: 21px;
+  }
+
+  .studio-console__screen-caption {
+    padding: 16px;
+  }
+
+  .studio-console__screen-caption b {
+    max-width: 150px;
+    font-size: 10px;
+  }
+}
+
+/* === CONSOLE POWER STATE === */
+.studio-console__screen-content {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .42s ease, visibility .42s ease;
+}
+
+.studio-console__screen-content.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.studio-console__screen-off {
+  position: absolute;
+  z-index: 10;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  color: rgba(255,255,255,.36);
+  text-align: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .28s ease, visibility .28s ease;
+}
+
+.studio-console__screen-off.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.studio-console__screen-off span {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: .28em;
+}
+
+.studio-console__screen-off small {
+  color: rgba(255,255,255,.17);
+  font-size: 6px;
+  letter-spacing: .2em;
+}
+
+.studio-console__power {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.studio-console__power:focus-visible {
+  outline: 2px solid #c8ff45;
+  outline-offset: 9px;
+  border-radius: 8px;
+}
+
+.studio-console__status-dot {
+  transition: background .25s ease, box-shadow .25s ease;
+}
+
+.studio-console__status-dot.is-on {
+  background: #c8ff45;
+  box-shadow: 0 0 10px rgba(200,255,69,.75);
+}
+
+/* === POLISHED STATIC WHEEL + SCREEN NAVIGATION === */
+.studio-console__screen-content {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .28s ease, visibility .28s ease;
+}
+
+.studio-console__screen-content.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.studio-console__chapter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  color: #f4f5f4;
+  will-change: transform, opacity, filter;
+}
+
+.studio-console__chapter--intro,
+.studio-console__chapter--final {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.studio-console__chapter--image-one,
+.studio-console__chapter--image-two {
+  justify-content: flex-end;
+}
+
+.studio-console__chapter--final h3 {
+  color: #c8ff45;
+}
+
+/*
+  The wheel is a fixed control surface. Nothing on this element rotates.
+*/
+.studio-console__dial {
+  justify-self: center;
+  width: 78%;
+  aspect-ratio: 1;
+  opacity: 1;
+  filter: none;
+  transform: none !important;
+  will-change: auto;
+}
+
+.studio-console__dial-ring {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: none !important;
+}
+
+/*
+  Large invisible hit areas around the small symbols.
+  Visually, only the icon is seen — like the supplied device reference.
+*/
+.studio-console__dial-button {
+  position: absolute;
+  z-index: 4;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #8a959c;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.studio-console__dial-button svg {
+  width: 15px;
+  height: 15px;
+  stroke-width: 1.45;
+  transition:
+    color .18s ease,
+    opacity .18s ease,
+    transform .12s ease,
+    filter .18s ease;
+}
+
+.studio-console__dial-button:not(:disabled):hover svg {
+  color: #606b72;
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,.72));
+}
+
+.studio-console__dial-button:not(:disabled):active svg {
+  transform: translateY(1px) scale(.91);
+}
+
+.studio-console__dial-button:focus-visible {
+  outline: 1px solid rgba(200,255,69,.9);
+  outline-offset: -7px;
+}
+
+.studio-console__dial-button:disabled {
+  cursor: default;
+}
+
+.studio-console__dial-button:disabled svg {
+  opacity: .38;
+}
+
+.studio-console__dial-button.is-current svg {
+  color: #69747c;
+}
+
+.studio-console__dial-button--top {
+  left: 50%;
+  top: 1.5%;
+  transform: translateX(-50%);
+}
+
+.studio-console__dial-button--right {
+  right: 1.8%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.studio-console__dial-button--bottom {
+  left: 50%;
+  bottom: 1%;
+  transform: translateX(-50%);
+}
+
+.studio-console__dial-button--left {
+  left: 1.8%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* The centre cap is fixed and deliberately non-interactive. */
+.studio-console__dial-core {
+  pointer-events: none;
+  transform: translate(-50%, -50%) !important;
+}
+
+/* Restore the narrow side control from the reference as a real BACK button. */
+.studio-console__back {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.studio-console__back:disabled {
+  cursor: default;
+  opacity: .48;
+}
+
+.studio-console__back:not(:disabled):active i {
+  transform: translateY(1px) scaleY(.95);
+}
+
+.studio-console__back:focus-visible {
+  outline: 1px solid rgba(200,255,69,.9);
+  outline-offset: 7px;
+  border-radius: 8px;
+}
+
+/* === GLOBAL VIEWPORT-FIT RESPONSIVE PASS === */
+.studio-console-wrap {
+  container-type: inline-size;
+}
+
+/*
+  Desktop / laptop:
+  The device width is limited by BOTH viewport width and viewport height.
+  Because the console aspect-ratio is .62, 53svh keeps its full height
+  inside a normal laptop viewport instead of letting the bottom get clipped.
+*/
+@media (min-width: 901px) {
+  .about-console__sticky {
+    height: 100vh;
+    height: 100svh;
+    min-height: 0;
+    box-sizing: border-box;
+    padding-block: clamp(24px, 5svh, 64px);
+  }
+
+  .studio-console-wrap {
+    width: min(100%, 540px, 53vh);
+    width: min(100%, 540px, 53svh);
+    max-height: 90vh;
+    max-height: 90svh;
+  }
+}
+
+/* Short laptop screens: tighten the section and keep the whole device visible. */
+@media (min-width: 901px) and (max-height: 850px) {
+  .about-console__sticky {
+    gap: clamp(34px, 4.6vw, 70px);
+    padding-block: clamp(18px, 3.5svh, 30px);
+  }
+
+  .about-console__eyebrow {
+    margin-bottom: clamp(20px, 3svh, 34px);
+  }
+
+  .about-console h2 {
+    font-size: clamp(46px, min(5.5vw, 8.8svh), 76px);
+  }
+
+  .about-console__lead {
+    margin-top: clamp(22px, 3svh, 34px);
+    font-size: clamp(13px, 1vw, 16px);
+  }
+
+  .about-console__facts {
+    margin-top: clamp(24px, 3.8svh, 40px);
+  }
+
+  .about-console__facts > div {
+    padding-top: 16px;
+    padding-bottom: 17px;
+  }
+
+  .about-console__facts b {
+    margin-top: 9px;
+  }
+
+  .about-console__facts p {
+    margin-top: 6px;
+    font-size: 11px;
+  }
+
+  .studio-console-wrap {
+    width: min(100%, 500px, 50vh);
+    width: min(100%, 500px, 50svh);
+  }
+}
+
+/* Very short / zoomed laptop screens. */
+@media (min-width: 901px) and (max-height: 680px) {
+  .about-console__sticky {
+    padding-block: 16px;
+  }
+
+  .about-console__eyebrow {
+    margin-bottom: 16px;
+  }
+
+  .about-console h2 {
+    font-size: clamp(40px, min(4.8vw, 8.5svh), 62px);
+  }
+
+  .about-console__lead {
+    margin-top: 18px;
+    line-height: 1.42;
+  }
+
+  .about-console__facts {
+    margin-top: 20px;
+  }
+
+  .about-console__facts p {
+    display: none;
+  }
+
+  .studio-console-wrap {
+    width: min(100%, 430px, 48vh);
+    width: min(100%, 430px, 48svh);
+  }
+}
+
+/* Tablet and phone: section becomes normal document flow, so nothing is clipped. */
+@media (max-width: 900px) {
+  .about-console__sticky {
+    box-sizing: border-box;
+  }
+
+  .studio-console-wrap {
+    width: min(100%, 520px, 58vh);
+    width: min(100%, 520px, 58svh);
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 620px) {
+  .studio-console-wrap {
+    width: min(100%, 430px, 58vh);
+    width: min(100%, 430px, 58svh);
+  }
+}
+
+/* Landscape phones / tiny-height browser windows. */
+@media (max-width: 900px) and (max-height: 560px) {
+  .about-console__sticky {
+    padding-top: 54px;
+    padding-bottom: 54px;
+  }
+
+  .studio-console-wrap {
+    width: min(100%, 420px, 50vh);
+    width: min(100%, 420px, 50svh);
+    margin-top: 28px;
+  }
+}
+
+/*
+  Scale the physical details with the device.
+  This prevents desktop-sized buttons/text from colliding on smaller consoles.
+*/
+.studio-console {
+  border-radius: clamp(28px, 10cqw, 56px);
+}
+
+.studio-console__topbar {
+  padding-inline: clamp(14px, 6.4cqw, 35px);
+}
+
+.studio-console__brand {
+  gap: clamp(4px, 1.3cqw, 7px);
+}
+
+.studio-console__brand .brand-mark {
+  width: clamp(12px, 3.4cqw, 18px);
+  height: clamp(12px, 3.4cqw, 18px);
+}
+
+.studio-console__brand strong {
+  font-size: clamp(10px, 2.8cqw, 15px);
+}
+
+.studio-console__brand small {
+  font-size: clamp(5px, 1.3cqw, 7px);
+}
+
+.studio-console__screen-shell {
+  border-radius: clamp(22px, 7cqw, 38px);
+}
+
+.studio-console__screen {
+  border-radius: clamp(17px, 5.2cqw, 28px);
+}
+
+.studio-console__screen-caption {
+  gap: clamp(8px, 3.7cqw, 20px);
+  padding: clamp(11px, 4cqw, 22px);
+}
+
+.studio-console__screen-caption b {
+  max-width: 48%;
+  font-size: clamp(8px, 2.2cqw, 12px);
+}
+
+.studio-console__screen-caption span,
+.studio-console__screen-kicker {
+  font-size: clamp(5px, 1.3cqw, 7px);
+}
+
+.studio-console__chapter h3,
+.studio-console__screen-state h3 {
+  font-size: clamp(20px, 7cqw, 40px);
+}
+
+.studio-console__chapter p,
+.studio-console__screen-state p {
+  font-size: clamp(5px, 1.3cqw, 7px);
+}
+
+.studio-console__power,
+.studio-console__back {
+  gap: clamp(6px, 2cqw, 11px);
+}
+
+.studio-console__power i {
+  width: clamp(6px, 1.7cqw, 9px);
+  height: clamp(32px, 10cqw, 54px);
+}
+
+.studio-console__back i {
+  width: clamp(7px, 1.9cqw, 10px);
+  height: clamp(24px, 7cqw, 38px);
+}
+
+.studio-console__power span,
+.studio-console__back span {
+  font-size: clamp(5px, 1.1cqw, 6px);
+}
+
+.studio-console__dial-button {
+  width: clamp(26px, 8cqw, 48px);
+  height: clamp(26px, 8cqw, 48px);
+}
+
+.studio-console__dial-button svg {
+  width: clamp(10px, 2.8cqw, 15px);
+  height: clamp(10px, 2.8cqw, 15px);
+}
+
+.studio-console__dial-core span {
+  font-size: clamp(14px, 4cqw, 21px);
+}
+
+/* Abdul's bio remains usable even on a small console. */
+.studio-console__bio {
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: clamp(10px, 4cqw, 22px);
+  border-radius: clamp(10px, 3cqw, 16px);
+}
+
+.studio-console__bio h4 {
+  margin-top: clamp(5px, 1.7cqw, 9px);
+  font-size: clamp(16px, 6cqw, 34px);
+}
+
+.studio-console__bio > b {
+  margin-top: clamp(4px, 1.3cqw, 7px);
+  font-size: clamp(7px, 1.7cqw, 9px);
+}
+
+.studio-console__bio p {
+  margin-top: clamp(8px, 3cqw, 16px);
+  font-size: clamp(8px, 2cqw, 12px);
+  line-height: 1.36;
+}
+
+.studio-console__bio small {
+  margin-top: clamp(8px, 3cqw, 17px);
+  font-size: clamp(5px, 1.1cqw, 6px);
+}
+
+/* Safe fallback for browsers without container query units. */
+@supports not (width: 1cqw) {
+  @media (min-width: 901px) {
+    .studio-console__dial-button {
+      width: 38px;
+      height: 38px;
+    }
+  }
+}
+
+/* === UI/UX APP LAUNCHER — MANUAL ONLY === */
+.studio-console__app-launcher {
+  position: absolute;
+  z-index: 7;
+  left: 6.5%;
+  right: 6.5%;
+  top: 7%;
+  bottom: 10%;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(12px, 4.2cqw, 24px);
+  border: 1px solid rgba(255,255,255,.11);
+  border-radius: clamp(12px, 3.8cqw, 20px);
+  background: linear-gradient(180deg, rgba(10,12,13,.50), rgba(8,10,11,.92));
+  backdrop-filter: blur(16px) saturate(.9);
+  -webkit-backdrop-filter: blur(16px) saturate(.9);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 18px 42px rgba(0,0,0,.24);
+  overflow: hidden;
+}
+
+.studio-console__app-launcher-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: clamp(10px, 3cqw, 16px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.studio-console__app-launcher-head span {
+  display: block;
+  color: #c8ff45;
+  font-size: clamp(5px, 1.3cqw, 7px);
+  font-weight: 700;
+  letter-spacing: .18em;
+}
+
+.studio-console__app-launcher-head h4 {
+  margin: clamp(5px, 1.7cqw, 9px) 0 0;
+  color: #f4f5f4;
+  font: 500 clamp(20px, 6.2cqw, 34px)/.95 'Manrope', sans-serif;
+  letter-spacing: -.05em;
+}
+
+.studio-console__app-launcher-head small {
+  margin-top: 3px;
+  color: rgba(255,255,255,.28);
+  font-size: clamp(4px, 1.05cqw, 6px);
+  letter-spacing: .14em;
+  white-space: nowrap;
+}
+
+.studio-console__apps-grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: center;
+  gap: clamp(7px, 2.4cqw, 13px);
+  padding-top: clamp(9px, 3cqw, 17px);
+}
+
+.studio-console__app-tile {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(7px, 2.4cqw, 13px);
+  padding: clamp(7px, 2.4cqw, 13px);
+  border: 1px solid rgba(255,255,255,.075);
+  border-radius: clamp(8px, 2.5cqw, 13px);
+  background: rgba(255,255,255,.035);
+}
+
+.studio-console__app-icon {
+  width: clamp(25px, 7.5cqw, 41px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: clamp(7px, 2.1cqw, 11px);
+  font-style: normal;
+  font: 600 clamp(8px, 2.6cqw, 14px)/1 'Manrope', sans-serif;
+}
+
+.studio-console__app-icon--figma {
+  color: #fff;
+  background:
+    radial-gradient(circle at 35% 25%, #ff7262 0 26%, transparent 27%),
+    radial-gradient(circle at 67% 25%, #a259ff 0 26%, transparent 27%),
+    radial-gradient(circle at 35% 50%, #f24e1e 0 26%, transparent 27%),
+    radial-gradient(circle at 67% 50%, #1abcfe 0 26%, transparent 27%),
+    radial-gradient(circle at 35% 75%, #0acf83 0 26%, transparent 27%),
+    #181818;
+}
+.studio-console__app-icon--xd { color:#ff61f6; background:#2e001f; }
+.studio-console__app-icon--ps { color:#31a8ff; background:#001e36; }
+.studio-console__app-icon--ai { color:#ff9a00; background:#330000; }
+.studio-console__app-icon--miro { color:#050038; background:#ffd02f; }
+.studio-console__app-icon--principle {
+  color:#fff;
+  background: linear-gradient(135deg, #ff456b, #7246ff);
+}
+
+.studio-console__app-tile b {
+  display:block;
+  overflow:hidden;
+  color:rgba(255,255,255,.88);
+  font-size:clamp(7px,1.8cqw,10px);
+  font-weight:600;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.studio-console__app-tile span {
+  display:block;
+  overflow:hidden;
+  margin-top:2px;
+  color:rgba(255,255,255,.36);
+  font-size:clamp(5px,1.25cqw,7px);
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.studio-console__dial-core {
+  pointer-events: auto !important;
+  z-index: 6;
+}
+.studio-console__dial-core:disabled {
+  pointer-events: none !important;
+}
+.studio-console__dial-core.is-available {
+  pointer-events: auto !important;
+  cursor: pointer;
+}
+.studio-console__dial-core.is-active {
+  background:
+    radial-gradient(circle at 50% 28%, #faffed 0%, #e9f7ca 55%, #d7e6b3 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.98),
+    0 7px 15px rgba(91,105,114,.16),
+    0 0 0 3px rgba(200,255,69,.18),
+    0 0 18px rgba(200,255,69,.22);
+}
+
+/* === DESIGNER PANEL FEW APPS === */
+.studio-console__designer-panel {
+  justify-content: flex-start;
+}
+
+.studio-console__designer-meta {
+  padding-top: clamp(10px, 3cqw, 16px);
+}
+
+.studio-console__designer-meta b {
+  display: block;
+  color: rgba(255,255,255,.84);
+  font-size: clamp(7px, 1.8cqw, 10px);
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+
+.studio-console__designer-meta p {
+  margin: clamp(8px, 2.7cqw, 14px) 0 0;
+  color: rgba(255,255,255,.58);
+  font-size: clamp(7px, 1.65cqw, 10px);
+  line-height: 1.42;
+}
+
+.studio-console__designer-tools {
+  margin-top: clamp(12px, 3.5cqw, 18px);
+  padding-top: clamp(10px, 3cqw, 16px);
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.studio-console__designer-tools > span {
+  display: block;
+  color: #c8ff45;
+  font-size: clamp(5px, 1.3cqw, 7px);
+  font-weight: 700;
+  letter-spacing: .18em;
+}
+
+.studio-console__apps-grid--few {
+  margin-top: clamp(8px, 2.6cqw, 14px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* === SECOND PROFILE PANEL === */
+.studio-console__profile-points {
+  margin-top: clamp(8px, 2.6cqw, 14px);
+  display: grid;
+  gap: clamp(7px, 2.2cqw, 12px);
+}
+
+.studio-console__profile-points > div {
+  padding: clamp(7px, 2.4cqw, 12px);
+  border: 1px solid rgba(255,255,255,.075);
+  border-radius: clamp(8px, 2.5cqw, 13px);
+  background: rgba(255,255,255,.035);
+}
+
+.studio-console__profile-points b {
+  display: block;
+  color: rgba(255,255,255,.84);
+  font-size: clamp(7px, 1.7cqw, 10px);
+  font-weight: 600;
+}
+
+.studio-console__profile-points span {
+  display: block;
+  margin-top: 4px;
+  color: rgba(255,255,255,.48);
+  font-size: clamp(6px, 1.45cqw, 8px);
+  line-height: 1.35;
+}
+
+/* === ARROW BUTTON VISUAL UPDATE === */
+.studio-console__dial-button svg {
+  width: clamp(12px, 3.2cqw, 18px);
+  height: clamp(12px, 3.2cqw, 18px);
+  stroke-width: 1.9;
+}
+
+.studio-console__dial-core {
+  display: grid;
+  place-items: center;
+}
+
+.studio-console__dial-core span {
+  display: block;
+  width: clamp(12px, 3.4cqw, 18px);
+  height: clamp(12px, 3.4cqw, 18px);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(213,222,228,.88));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.85),
+    0 1px 2px rgba(60,70,76,.12);
+}
+
+.studio-console__dial-core.is-active span {
+  background: radial-gradient(circle at 50% 35%, #ffffff 0%, #edf6dc 50%, #d7e6b3 100%);
+}
