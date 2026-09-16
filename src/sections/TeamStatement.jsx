@@ -15,7 +15,7 @@ const testimonials = [
     brand: 'VERDANT',
     logo: '/projects/verdant-logo.svg',
     preview: '/projects/verdant-preview.gif',
-    projectUrl: '',
+    projectUrl: 'https://verdantgroup.co.in/',
     quote:
       'Thoughtful work, sharp collaboration and a team that knows how to turn complexity into something clear.',
     name: 'PARTNER NOTE',
@@ -25,7 +25,7 @@ const testimonials = [
     brand: 'REMEDIA',
     logo: '/projects/remedia-logo.svg',
     preview: '/projects/remedia-preview.gif',
-    projectUrl: '',
+    projectUrl: 'https://remediagroup.in/',
     quote:
       'The team immersed themselves in the story quickly and kept strategy, design and execution moving together.',
     name: 'PARTNER NOTE',
@@ -35,7 +35,7 @@ const testimonials = [
     brand: 'KALYANI MUDUMBA',
     logo: '/projects/kalyani-logo.svg',
     preview: '/projects/kalyani-preview.gif',
-    projectUrl: '',
+    projectUrl: 'https://www.kalyanimudumba.com/',
     quote:
       'An exceptional creative partner — responsive, rigorous and committed to pushing the experience forward.',
     name: 'PARTNER NOTE',
@@ -45,7 +45,7 @@ const testimonials = [
     brand: 'ASR',
     logo: '/projects/asr-logo.svg',
     preview: '/projects/asr-preview.gif',
-    projectUrl: '',
+    projectUrl: 'https://www.asrimpex.in/',
     quote:
       'They bring ambition to complicated digital work while staying flexible, collaborative and focused on the outcome.',
     name: 'PARTNER NOTE',
@@ -139,7 +139,13 @@ function CurvedGlassCard({ item, index, progress }) {
       </div>
 
       {index <= 3 ? (
-        <div className="project-showcase-card">
+        <a
+          className="project-showcase-card project-showcase-card--clickable"
+          href={item.projectUrl}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`Open ${item.brand} website`}
+        >
           <div className="project-showcase-card__header">
             <img
               src={item.logo}
@@ -147,15 +153,9 @@ function CurvedGlassCard({ item, index, progress }) {
               className="project-showcase-card__logo"
             />
 
-            <a
-              className="project-showcase-card__link"
-              href={item.projectUrl || undefined}
-              target={item.projectUrl ? '_blank' : undefined}
-              rel={item.projectUrl ? 'noreferrer' : undefined}
-              aria-label={`Open ${item.brand} project`}
-            >
-              <ExternalLink aria-hidden="true" />
-            </a>
+            <span className="project-showcase-card__link" aria-hidden="true">
+              <ExternalLink />
+            </span>
           </div>
 
           <p className="project-showcase-card__quote">“{item.quote}”</p>
@@ -167,7 +167,7 @@ function CurvedGlassCard({ item, index, progress }) {
               className="project-showcase-card__preview"
             />
           </div>
-        </div>
+        </a>
       ) : (
         <>
           <strong className="noomo-glass-card__brand">{item.brand}</strong>
