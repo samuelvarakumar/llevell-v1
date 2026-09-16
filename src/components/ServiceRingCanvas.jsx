@@ -109,10 +109,11 @@ export default function ServiceRingCanvas({ activeIndex, scrollProgress }) {
       aria-label="Animated service ring"
     >
       <Canvas
+        key={compact ? 'compact-service-canvas' : 'desktop-service-canvas'}
         dpr={compact ? 1 : [1, 1.25]}
         camera={{
-          position: [0, 0, 5.8],
-          fov: 34,
+          position: [0, 0, compact ? 6.75 : 5.8],
+          fov: compact ? 38 : 34,
           near: 0.1,
           far: 100,
         }}
