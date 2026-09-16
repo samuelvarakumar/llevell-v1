@@ -15,6 +15,7 @@ import './RingLab.css'
 const services = [
   {
     number: '01',
+    mobileLabel: 'UI / UX',
     title: 'UI & UX Design',
     line: 'Make it easy. Make it beautiful.',
     details: 'UX Research · Product Design · UI Design · Design Systems · Web · Mobile · SaaS · Dashboards · Prototypes · UX Audits · AI UX · Wireframes · AI Legible Designs · AI Assisted Designs',
@@ -31,6 +32,7 @@ const services = [
   },
   {
     number: '02',
+    mobileLabel: 'Build',
     title: 'Product Development',
     line: 'From pixels to production.',
     details: 'Web Apps · Websites · Mobile Apps · SaaS · E-commerce · React · Next.js · 3.js · Flutter · Angular · APIs · Cloud · CMS · AI Integrations · AI Products',
@@ -47,6 +49,7 @@ const services = [
   },
   {
     number: '03',
+    mobileLabel: 'Brand',
     title: 'Branding',
     line: 'Give your brand a point of view.',
     details: 'Brand Strategy · Naming · Logo · Visual Identity · Brand Systems · Guidelines · Brand Voice · Digital Branding',
@@ -63,6 +66,7 @@ const services = [
   },
   {
     number: '04',
+    mobileLabel: 'Grow',
     title: 'Marketing',
     line: 'Be there when people search.',
     details: 'Technical SEO · Content · Keywords · Search Intent · Local SEO · International SEO · Performance · Schema · Analytics · GEO · AEO · AI Search Optimization · AI Visibility · Entity Optimization · Structured Content · AI-Citable Content · AI Search',
@@ -93,10 +97,7 @@ function StageAnnotations({ activeIndex, localProgress }) {
           <PenTool size={17} />
           <span>VECTOR</span>
         </div>
-        <motion.div
-          className="design-draw-progress"
-          style={{ scaleX: localProgress }}
-        />
+        <motion.div className="design-draw-progress" style={{ scaleX: localProgress }} />
       </div>
     )
   }
@@ -146,10 +147,108 @@ function StageAnnotations({ activeIndex, localProgress }) {
   )
 }
 
+function MobileServices({ activeIndex, onSelect, sectionRef }) {
+  const service = services[activeIndex]
+  const ServiceIcon = service.icon
+  const sceneProgress = (activeIndex + 0.5) / services.length
+
+  return (
+    <section className="cinematic-services cinematic-services--mobile" id="services" ref={sectionRef}>
+      <div className="mobile-services">
+        <div className="mobile-services__eyebrow">
+          <span>OUR SERVICES</span>
+          <i aria-hidden="true" />
+          <small>DESIGN. BUILD. GROW.</small>
+        </div>
+
+        <nav className="mobile-services__tabs" aria-label="Choose a service">
+          {services.map((item, index) => (
+            <button
+              type="button"
+              key={item.number}
+              className={index === activeIndex ? 'is-active' : ''}
+              onClick={() => onSelect(index)}
+              aria-current={index === activeIndex ? 'true' : undefined}
+            >
+              <span>{item.number}</span>
+              <small>{item.mobileLabel}</small>
+            </button>
+          ))}
+        </nav>
+
+        <AnimatePresence mode="wait">
+          <motion.article
+            className="mobile-services__card"
+            key={service.number}
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="mobile-services__copy">
+              <div className="mobile-services__number">
+                <span>{service.number}</span>
+                <i aria-hidden="true" />
+              </div>
+
+              <div className="mobile-services__title-row">
+                <ServiceIcon size={17} />
+                <h2>{service.title}</h2>
+              </div>
+
+              <span className="mobile-services__accent" />
+              <h3>{service.line}</h3>
+              <p>{service.details}</p>
+            </div>
+
+            <div className="mobile-services__visual" aria-hidden="true">
+              <ServiceRingCanvas
+                activeIndex={activeIndex}
+                scrollProgress={sceneProgress}
+              />
+            </div>
+
+            <div className="mobile-services__tools-wrap">
+              <span className="mobile-services__tools-label">{service.category}</span>
+              <div className="mobile-services__tools">
+                {service.tools.map((tool, index) => (
+                  <motion.button
+                    type="button"
+                    key={`${service.number}-${tool.id}-${tool.label}`}
+                    className="mobile-service-tool"
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.025 * index }}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    <span><ToolLogo id={tool.id} label={tool.label} /></span>
+                    <small>{tool.label}</small>
+                  </motion.button>
+                ))}
+              </div>
+            </div>
+          </motion.article>
+        </AnimatePresence>
+      </div>
+    </section>
+  )
+}
+
 export default function RingLab() {
   const sectionRef = useRef(null)
   const activeIndexRef = useRef(0)
   const [activeIndex, setActiveIndex] = useState(0)
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(max-width: 760px)').matches,
+  )
+
+  useEffect(() => {
+    const query = window.matchMedia('(max-width: 760px)')
+    const update = () => setIsMobile(query.matches)
+    update()
+    query.addEventListener?.('change', update)
+    return () => query.removeEventListener?.('change', update)
+  }, [])
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -168,20 +267,27 @@ export default function RingLab() {
   const localProgress = useTransform(smoothProgress, (value) => {
     const safeValue = Math.min(1, Math.max(0, value))
     const scaled = safeValue * services.length
-    const index = safeValue >= 1
-      ? services.length - 1
-      : Math.floor(scaled)
+    const index = safeValue >= 1 ? services.length - 1 : Math.floor(scaled)
     const local = Math.min(1, Math.max(0, scaled - index))
-
     return local * local * (3 - 2 * local)
   })
 
   useMotionValueEvent(smoothProgress, 'change', (value) => {
+    if (isMobile) return
     const next = clampIndex(value)
     if (next === activeIndexRef.current) return
     activeIndexRef.current = next
     setActiveIndex(next)
   })
+
+  const selectMobileService = (index) => {
+    activeIndexRef.current = index
+    setActiveIndex(index)
+  }
+
+  if (isMobile) {
+    return <MobileServices activeIndex={activeIndex} onSelect={selectMobileService} sectionRef={sectionRef} />
+  }
 
   const jumpTo = (index) => {
     const section = sectionRef.current
@@ -198,7 +304,7 @@ export default function RingLab() {
   const ServiceIcon = service.icon
 
   return (
-    <section className="cinematic-services" id="services" ref={sectionRef}>
+    <section className="cinematic-services cinematic-services--desktop" id="services" ref={sectionRef}>
       <div className="cinematic-services__sticky">
         <motion.div className="cinematic-services__top-progress" style={{ width: sectionProgress }} />
         <div className="cinematic-services__backdrop" />
