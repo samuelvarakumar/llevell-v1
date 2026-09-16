@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 const links = [
-  ['Overview', '#overview'],
-  ['Fitness', '#fitness'],
-  ['Sleep', '#sleep'],
-  ['Heart', '#heart'],
+  ['Services', '#services'],
+  ['About', '#about'],
+  ['AI Approach', '#ai-approach'],
+  ['Work', '#team'],
 ]
 
 function LlevellWordmark({ className = '' }) {

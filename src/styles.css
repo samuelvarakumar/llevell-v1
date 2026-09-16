@@ -2465,10 +2465,12 @@ img { max-width: 100%; display: block; }
   transition: background .22s ease;
 }
 
-.sensiq-main-nav a:nth-child(1) { width: 138px; }
-.sensiq-main-nav a:nth-child(2) { width: 116px; }
-.sensiq-main-nav a:nth-child(3) { width: 104px; }
-.sensiq-main-nav a:nth-child(4) { width: 112px; }
+/* Keep the desktop menu's total width exactly the same (470px).
+   Only rebalance the four cells so the new labels fit without enlarging the header. */
+.sensiq-main-nav a:nth-child(1) { width: 122px; }
+.sensiq-main-nav a:nth-child(2) { width: 100px; }
+.sensiq-main-nav a:nth-child(3) { width: 148px; }
+.sensiq-main-nav a:nth-child(4) { width: 100px; }
 .sensiq-main-nav a:hover { background: #f3f2f0; }
 
 .sensiq-panel-spacer {
@@ -4125,10 +4127,12 @@ html.lenis body {
     font-size: 15px;
   }
 
-  .sensiq-header--full .sensiq-main-nav a:nth-child(1) { width: 124px; }
-  .sensiq-header--full .sensiq-main-nav a:nth-child(2) { width: 106px; }
-  .sensiq-header--full .sensiq-main-nav a:nth-child(3) { width: 96px; }
-  .sensiq-header--full .sensiq-main-nav a:nth-child(4) { width: 102px; }
+  /* Keep the full menu width unchanged (428px total), but give
+     “AI Approach” comfortable breathing room from both dividers. */
+  .sensiq-header--full .sensiq-main-nav a:nth-child(1) { width: 108px; }
+  .sensiq-header--full .sensiq-main-nav a:nth-child(2) { width: 90px; }
+  .sensiq-header--full .sensiq-main-nav a:nth-child(3) { width: 140px; padding-inline: 20px; }
+  .sensiq-header--full .sensiq-main-nav a:nth-child(4) { width: 90px; }
 
   .sensiq-header--full .sensiq-apps-button {
     flex-basis: 62px;
@@ -8790,27 +8794,15 @@ html.llevell-cursor-active input[type="radio"] {
 }
 
 
-/* === FINAL CTA — SLOW MOVEMENT ONLY ===
-   Keeps the original design exactly as-is.
-   No new shapes, no rotation, no changes to the existing faint L. */
+/* === FINAL CTA / FOOTER SEAM FIX ===
+   Keep the section itself stationary so the page background cannot appear
+   between the CTA and footer on wide screens. */
 .final-cta {
-  transform-origin: center center;
-  animation: finalCtaSlowFloat 18s ease-in-out infinite;
-  will-change: transform;
+  animation: none !important;
+  transform: none !important;
+  will-change: auto;
 }
 
-@keyframes finalCtaSlowFloat {
-  0%, 100% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(0, -4px, 0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .final-cta {
-    animation: none !important;
-    transform: none !important;
-  }
+.final-cta + .footer {
+  margin-top: -1px;
 }
