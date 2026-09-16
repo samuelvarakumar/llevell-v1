@@ -46,7 +46,7 @@ export default function ContactPanel({ open, onClose }) {
       form.idea,
     ].join('\n')
 
-    window.location.href = `mailto:hello@llevell.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href = `mailto:hello@llevell.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
   }
 
   return (
@@ -130,7 +130,7 @@ export default function ContactPanel({ open, onClose }) {
             </label>
 
             <div className="contact-brief-actions">
-              <a href="mailto:hello@llevell.com">hello@llevell.com</a>
+              <a href="mailto:hello@llevell.in">hello@llevell.in</a>
               <button type="submit">
                 <span>Send the spark</span>
                 <ArrowUpRight size={18} strokeWidth={1.8} />
