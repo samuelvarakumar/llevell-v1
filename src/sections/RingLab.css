@@ -652,3 +652,391 @@
     letter-spacing: .18em;
   }
 }
+
+/* --------------------------------------------------------------------------
+   MOBILE / TABLET SERVICES RESPONSIVE PASS
+   Keeps the four-service scroll sequence, removes horizontal overflow, and
+   scales copy, 3D stage, tools and navigation to fit smaller screens.
+   -------------------------------------------------------------------------- */
+@media (max-width: 760px) {
+  .cinematic-services {
+    height: 420svh;
+    min-height: 420svh;
+  }
+
+  .cinematic-services__sticky {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100svh;
+    min-height: 100svh;
+    max-height: 100svh;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding:
+      max(16px, env(safe-area-inset-top))
+      12px
+      max(12px, env(safe-area-inset-bottom));
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    gap: 10px;
+  }
+
+  .cinematic-services__header {
+    min-height: 18px;
+    justify-content: flex-start;
+    gap: 9px;
+    padding-inline: 2px;
+    font-size: 8px;
+    letter-spacing: .2em;
+  }
+
+  .cinematic-services__header > i {
+    width: 22px;
+    flex-basis: 22px;
+  }
+
+  .cinematic-services__header small {
+    display: block;
+    font-size: 7px;
+    letter-spacing: .16em;
+  }
+
+  .cinematic-services__card {
+    min-height: 0;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(190px, 1fr) auto;
+    overflow: hidden;
+    border-radius: 14px;
+  }
+
+  .cinematic-services__copy {
+    align-self: auto;
+    min-height: 0;
+    padding: 18px 18px 12px;
+  }
+
+  .cinematic-services__index {
+    gap: 10px;
+    margin-bottom: 11px;
+    font-size: 13px;
+  }
+
+  .cinematic-services__index i {
+    width: 24px;
+  }
+
+  .cinematic-services__title-row {
+    gap: 9px;
+    align-items: flex-start;
+  }
+
+  .cinematic-services__title-row > svg {
+    width: 15px;
+    height: 15px;
+    margin-top: 5px;
+  }
+
+  .cinematic-services__copy h2 {
+    max-width: none;
+    font-size: clamp(31px, 9.6vw, 46px);
+    line-height: .98;
+    letter-spacing: -.055em;
+  }
+
+  .cinematic-services__accent-line {
+    width: 26px;
+    margin: 12px 0 10px;
+  }
+
+  .cinematic-services__copy h3 {
+    margin: 0 0 9px;
+    font-size: clamp(12px, 3.5vw, 15px);
+    line-height: 1.32;
+  }
+
+  .cinematic-services__copy p {
+    max-width: none;
+    font-size: clamp(9.5px, 2.65vw, 11.5px);
+    line-height: 1.5;
+  }
+
+  .cinematic-services__visual {
+    min-height: 190px;
+    height: auto;
+    border-left: 0;
+    border-top: 1px solid rgba(255,255,255,.08);
+  }
+
+  /* Keep annotations useful but out of the way on narrow screens. */
+  .annotation,
+  .brand-note,
+  .search-signal {
+    font-size: 7px;
+    padding: 4px 6px;
+  }
+
+  .annotation-toolbox,
+  .dev-chip {
+    transform: scale(.7);
+  }
+
+  .build-terminal {
+    left: 2%;
+    bottom: 4%;
+    width: 150px;
+    padding: 9px 10px;
+    font-size: 7px;
+    transform: scale(.76);
+    transform-origin: left bottom;
+  }
+
+  .build-progress {
+    right: 3%;
+    bottom: 5%;
+    width: 142px;
+    gap: 5px 8px;
+  }
+
+  .build-progress > span,
+  .ranking-card span {
+    font-size: 7px;
+  }
+
+  .ranking-card {
+    right: 5%;
+    bottom: 7%;
+    min-width: 128px;
+    padding: 10px 12px;
+  }
+
+  .ranking-card b {
+    font-size: 18px;
+  }
+
+  .brand-spectrum {
+    width: 130px;
+  }
+
+  .cinematic-services__tool-tray {
+    min-width: 0;
+    overflow: hidden;
+    gap: 7px;
+    padding: 9px 10px 10px;
+  }
+
+  .cinematic-services__tool-tray > span {
+    font-size: 7px;
+    letter-spacing: .13em;
+  }
+
+  .cinematic-services__tools {
+    min-width: 0;
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .cinematic-tool {
+    min-width: 0;
+    min-height: 50px;
+    border-radius: 8px;
+    gap: 4px;
+  }
+
+  .cinematic-tool > span {
+    width: 22px;
+    height: 22px;
+  }
+
+  .cinematic-tool small {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-inline: 3px;
+    font-size: 7px;
+  }
+
+  .cinematic-services__nav {
+    width: 100%;
+    min-width: 0;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 7px;
+    overflow: hidden;
+    padding: 0 2px 2px;
+  }
+
+  .cinematic-services__nav button {
+    min-width: 0;
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .cinematic-services__nav button > span {
+    font-size: 15px;
+  }
+
+  .cinematic-services__nav button > b {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 8px;
+  }
+
+  .cinematic-services__nav button > i {
+    height: 1px;
+  }
+}
+
+@media (max-width: 430px) {
+  .cinematic-services__sticky {
+    padding-top: max(12px, env(safe-area-inset-top));
+    padding-inline: 9px;
+    gap: 8px;
+  }
+
+  .cinematic-services__header {
+    font-size: 7px;
+  }
+
+  .cinematic-services__header small {
+    display: none;
+  }
+
+  .cinematic-services__card {
+    grid-template-rows: auto minmax(175px, 1fr) auto;
+    border-radius: 12px;
+  }
+
+  .cinematic-services__copy {
+    padding: 14px 14px 9px;
+  }
+
+  .cinematic-services__index {
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+
+  .cinematic-services__copy h2 {
+    font-size: clamp(29px, 9.2vw, 39px);
+  }
+
+  .cinematic-services__accent-line {
+    margin: 10px 0 8px;
+  }
+
+  .cinematic-services__copy h3 {
+    margin-bottom: 7px;
+    font-size: clamp(11.5px, 3.35vw, 14px);
+  }
+
+  .cinematic-services__copy p {
+    font-size: clamp(9px, 2.45vw, 10.5px);
+    line-height: 1.42;
+  }
+
+  .cinematic-services__visual {
+    min-height: 175px;
+  }
+
+  .cinematic-services__tool-tray {
+    padding: 7px 8px 8px;
+  }
+
+  .cinematic-services__tools {
+    gap: 5px;
+  }
+
+  .cinematic-tool {
+    min-height: 43px;
+  }
+
+  .cinematic-tool > span {
+    width: 19px;
+    height: 19px;
+  }
+
+  .cinematic-tool small {
+    font-size: 6.5px;
+  }
+
+  .cinematic-services__nav button > span {
+    font-size: 14px;
+  }
+
+  /* On very narrow phones the service number + progress indicator is clearer
+     than forcing long service titles into four tiny columns. */
+  .cinematic-services__nav button > b {
+    display: none;
+  }
+
+  .annotation--measure,
+  .annotation--radius-small,
+  .brand-note--voice,
+  .search-signal--two {
+    display: none;
+  }
+
+  .build-terminal {
+    transform: scale(.66);
+  }
+
+  .build-progress {
+    width: 115px;
+  }
+}
+
+/* Landscape phones / short browser viewports. */
+@media (max-width: 900px) and (max-height: 600px) and (orientation: landscape) {
+  .cinematic-services {
+    height: 420svh;
+  }
+
+  .cinematic-services__sticky {
+    padding: 10px 12px;
+    gap: 7px;
+  }
+
+  .cinematic-services__card {
+    grid-template-columns: minmax(220px, 42%) minmax(0, 58%);
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+
+  .cinematic-services__copy {
+    padding: 14px 16px;
+  }
+
+  .cinematic-services__copy h2 {
+    font-size: clamp(28px, 5.2vw, 44px);
+  }
+
+  .cinematic-services__copy p {
+    font-size: 8.5px;
+    line-height: 1.35;
+  }
+
+  .cinematic-services__visual {
+    min-height: 0;
+    border-top: 0;
+    border-left: 1px solid rgba(255,255,255,.08);
+  }
+
+  .cinematic-services__tool-tray {
+    grid-column: 1 / -1;
+  }
+
+  .cinematic-services__tools {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .cinematic-tool {
+    min-height: 40px;
+  }
+
+  .cinematic-services__nav button > b {
+    display: none;
+  }
+}
