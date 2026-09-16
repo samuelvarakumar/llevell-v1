@@ -8806,3 +8806,249 @@ html.llevell-cursor-active input[type="radio"] {
 .final-cta + .footer {
   margin-top: -1px;
 }
+
+/* =========================================================
+   Responsive header refinement
+   - Keeps the current large-desktop header unchanged.
+   - Compresses spacing and controls smoothly on laptop widths.
+   - Uses the existing compact/mobile menu below 960px.
+   ========================================================= */
+@media (min-width: 961px) and (max-width: 1240px) {
+  .sensiq-header--full {
+    height: 82px;
+    padding: 8px 16px 8px 24px;
+  }
+
+  .sensiq-header--full .sensiq-header__inner {
+    height: 62px;
+  }
+
+  .sensiq-floating-logo--full {
+    top: 8px;
+    left: 24px;
+    width: 118px;
+    height: 62px;
+  }
+
+  .sensiq-floating-logo--full .llevell-wordmark-image {
+    width: 118px;
+    max-height: 34px;
+  }
+
+  .sensiq-header--full .sensiq-logo-slot {
+    flex-basis: 118px;
+    width: 118px;
+    margin-right: 18px;
+  }
+
+  .sensiq-header--full .sensiq-home-button {
+    flex-basis: 62px;
+    width: 62px;
+    height: 62px;
+    border-radius: 9px;
+  }
+
+  .sensiq-header--full .sensiq-home-button svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .sensiq-header--full .sensiq-desktop-panel {
+    height: 62px;
+    margin-left: 8px;
+    border-radius: 9px;
+  }
+
+  .sensiq-header--full .sensiq-main-nav a {
+    height: 62px;
+    padding-inline: 14px;
+    font-size: 13.5px;
+  }
+
+  .sensiq-header--full .sensiq-main-nav a:nth-child(1) { width: 92px; }
+  .sensiq-header--full .sensiq-main-nav a:nth-child(2) { width: 76px; }
+  .sensiq-header--full .sensiq-main-nav a:nth-child(3) { width: 126px; padding-inline: 16px; }
+  .sensiq-header--full .sensiq-main-nav a:nth-child(4) { width: 72px; }
+
+  .sensiq-header--full .sensiq-panel-spacer {
+    min-width: 8px;
+  }
+
+  .sensiq-header--full .sensiq-apps-button {
+    flex-basis: 52px;
+    width: 52px;
+    height: 62px;
+  }
+
+  .sensiq-header--full .sensiq-apps-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .sensiq-header--full .sensiq-shop-button {
+    flex-basis: 145px;
+    width: 145px;
+    height: 42px;
+    margin-right: 8px;
+    padding: 0 14px;
+    border-radius: 9px;
+    font-size: 12.5px;
+  }
+
+  .sensiq-header--full .sensiq-shop-button svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .sensiq-header--compact {
+    padding-left: 24px;
+  }
+
+  .sensiq-floating-logo--compact {
+    left: 24px;
+  }
+}
+
+@media (max-width: 960px) {
+  .sensiq-header {
+    padding-left: clamp(10px, 2.8vw, 14px);
+    padding-right: clamp(10px, 2.8vw, 14px);
+  }
+
+  .sensiq-floating-logo,
+  .sensiq-floating-logo--compact,
+  .sensiq-floating-logo--full {
+    left: clamp(10px, 2.8vw, 14px);
+  }
+
+  .sensiq-floating-logo .llevell-wordmark-image {
+    width: clamp(112px, 26vw, 132px);
+  }
+
+  .sensiq-home-button,
+  .sensiq-header--compact .sensiq-compact-menu,
+  .sensiq-compact-menu {
+    flex-basis: clamp(46px, 11vw, 50px);
+    width: clamp(46px, 11vw, 50px);
+    height: clamp(46px, 11vw, 50px);
+  }
+
+  .sensiq-mobile-menu {
+    padding: clamp(16px, 4vw, 24px);
+  }
+
+  .sensiq-mobile-links a {
+    font-size: clamp(34px, 9vw, 58px);
+  }
+}
+
+@media (max-width: 520px) {
+  .sensiq-header {
+    height: 64px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .sensiq-header__inner,
+  .sensiq-floating-logo,
+  .sensiq-floating-logo--compact,
+  .sensiq-floating-logo--full {
+    height: 48px;
+  }
+
+  .sensiq-floating-logo,
+  .sensiq-floating-logo--compact,
+  .sensiq-floating-logo--full {
+    top: 8px;
+  }
+
+  .sensiq-floating-logo .llevell-wordmark-image {
+    width: clamp(106px, 31vw, 118px);
+    max-height: 30px;
+  }
+
+  .sensiq-home-button,
+  .sensiq-header--compact .sensiq-compact-menu,
+  .sensiq-compact-menu {
+    flex-basis: 48px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .sensiq-mobile-links a {
+    padding: 11px 0;
+    font-size: clamp(32px, 10vw, 46px);
+  }
+
+  .sensiq-mobile-shop,
+  .sensiq-mobile-contact {
+    min-height: 54px;
+  }
+}
+
+@media (max-width: 360px) {
+  .sensiq-floating-logo .llevell-wordmark-image {
+    width: 102px;
+  }
+
+  .sensiq-home-button,
+  .sensiq-header--compact .sensiq-compact-menu,
+  .sensiq-compact-menu {
+    flex-basis: 44px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .sensiq-header__inner,
+  .sensiq-floating-logo,
+  .sensiq-floating-logo--compact,
+  .sensiq-floating-logo--full {
+    height: 44px;
+  }
+
+  .sensiq-mobile-links a {
+    font-size: 31px;
+  }
+}
+
+@media (max-width: 960px) and (max-height: 700px) {
+  .sensiq-mobile-menu {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .sensiq-mobile-links {
+    margin: 18px 0;
+  }
+
+  .sensiq-mobile-links a {
+    padding: 8px 0;
+    font-size: clamp(27px, 7vh, 38px);
+  }
+
+  .sensiq-mobile-actions {
+    gap: 8px;
+  }
+
+  .sensiq-mobile-shop,
+  .sensiq-mobile-contact {
+    min-height: 48px;
+  }
+}
+
+/* =========================================================
+   MOBILE HERO SPACING FIX
+   Pull the 3D LLeveLL mark closer to the hero headline on
+   phones without changing the desktop/tablet composition.
+   ========================================================= */
+@media (max-width: 760px) {
+  .hero--logo-magic .hero-stage--logo {
+    top: 455px;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero--logo-magic .hero-stage--logo {
+    top: 440px;
+  }
+}
