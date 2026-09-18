@@ -112,8 +112,8 @@ export default function ServiceRingCanvas({ activeIndex, scrollProgress }) {
         key={compact ? 'compact-service-canvas' : 'desktop-service-canvas'}
         dpr={compact ? 1 : [1, 1.25]}
         camera={{
-          position: [0, 0, compact ? 6.75 : 5.8],
-          fov: compact ? 38 : 34,
+          position: [0, 0, compact ? 7.2 : 6.7],
+          fov: compact ? 39 : 36,
           near: 0.1,
           far: 100,
         }}

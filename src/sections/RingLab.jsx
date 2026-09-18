@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import {
   AnimatePresence,
   motion,
@@ -7,9 +7,8 @@ import {
   useSpring,
   useTransform,
 } from 'motion/react'
-import { Check, CloudUpload, Code2, PenTool, Search, SquareTerminal } from 'lucide-react'
+import { Code2, PenTool, Search } from 'lucide-react'
 import ServiceRingCanvas from '../components/ServiceRingCanvas'
-import ToolLogo from '../components/ToolLogo'
 import './RingLab.css'
 
 const services = [
@@ -19,16 +18,7 @@ const services = [
     title: 'UI & UX Design',
     line: 'Make it easy. Make it beautiful.',
     details: 'UX Research · Product Design · UI Design · Design Systems · Web · Mobile · SaaS · Dashboards · Prototypes · UX Audits · AI UX · Wireframes · AI Legible Designs · AI Assisted Designs',
-    category: 'DESIGN TOOLS',
     icon: PenTool,
-    tools: [
-      { id: 'figma', label: 'Figma' },
-      { id: 'sketch', label: 'Sketch' },
-      { id: 'principle', label: 'Principle' },
-      { id: 'miro', label: 'Miro' },
-      { id: 'envato', label: 'Envato' },
-      { id: 'adobe', label: 'Adobe' },
-    ],
   },
   {
     number: '02',
@@ -36,16 +26,7 @@ const services = [
     title: 'Product Development',
     line: 'From pixels to production.',
     details: 'Web Apps · Websites · Mobile Apps · SaaS · E-commerce · React · Next.js · 3.js · Flutter · Angular · APIs · Cloud · CMS · AI Integrations · AI Products',
-    category: 'TECHNOLOGIES',
     icon: Code2,
-    tools: [
-      { id: 'react', label: 'React' },
-      { id: 'next', label: 'Next.js' },
-      { id: 'threejs', label: '3.js' },
-      { id: 'flutter', label: 'Flutter' },
-      { id: 'angular', label: 'Angular' },
-      { id: 'cloud', label: 'APIs / Cloud' },
-    ],
   },
   {
     number: '03',
@@ -53,16 +34,7 @@ const services = [
     title: 'Branding',
     line: 'Give your brand a point of view.',
     details: 'Brand Strategy · Naming · Logo · Visual Identity · Brand Systems · Guidelines · Brand Voice · Digital Branding',
-    category: 'BRAND TOOLS',
     icon: PenTool,
-    tools: [
-      { id: 'adobe', label: 'Adobe' },
-      { id: 'figma', label: 'Figma' },
-      { id: 'sketch', label: 'Sketch' },
-      { id: 'miro', label: 'Miro' },
-      { id: 'envato', label: 'Envato' },
-      { id: 'principle', label: 'Motion' },
-    ],
   },
   {
     number: '04',
@@ -70,79 +42,47 @@ const services = [
     title: 'Marketing',
     line: 'Be there when people search.',
     details: 'Technical SEO · Content · Keywords · Search Intent · Local SEO · International SEO · Performance · Schema · Analytics · GEO · AEO · AI Search Optimization · AI Visibility · Entity Optimization · Structured Content · AI-Citable Content · AI Search',
-    category: 'SEARCH & GROWTH',
     icon: Search,
-    tools: [
-      { id: 'analytics', label: 'Analytics' },
-      { id: 'lighthouse', label: 'Lighthouse' },
-      { id: 'wordpress', label: 'WordPress' },
-      { id: 'cloudflare', label: 'Cloudflare' },
-      { id: 'vercel', label: 'Vercel' },
-      { id: 'github', label: 'GitHub' },
-    ],
   },
 ]
 
 const clampIndex = (value) => Math.min(services.length - 1, Math.max(0, Math.floor(value * services.length)))
 
+function getCapabilities(service) {
+  return service.details.split(' · ').filter(Boolean)
+}
+
 function StageAnnotations({ activeIndex, localProgress }) {
   if (activeIndex === 0) {
     return (
       <div className="cinematic-annotations cinematic-annotations--design">
-        <span className="annotation annotation--measure">120px</span>
-        <span className="annotation annotation--radius">R120</span>
-        <span className="annotation annotation--radius-small">R32</span>
-        <span className="annotation annotation--angle">45°</span>
-        <div className="annotation-toolbox">
-          <PenTool size={17} />
-          <span>VECTOR</span>
-        </div>
         <motion.div className="design-draw-progress" style={{ scaleX: localProgress }} />
       </div>
     )
   }
 
-  if (activeIndex === 1) {
-    return (
-      <div className="cinematic-annotations cinematic-annotations--development">
-        <div className="dev-chip dev-chip--build"><Code2 size={18} /><span>BUILD</span></div>
-        <div className="dev-chip dev-chip--compile"><SquareTerminal size={18} /><span>COMPILE</span></div>
-        <div className="dev-chip dev-chip--deploy"><CloudUpload size={18} /><span>DEPLOY</span></div>
+  return null
+}
 
-        <div className="build-terminal">
-          <span>&gt; Installing modules <Check size={13} /></span>
-          <span>&gt; Compiling <Check size={13} /></span>
-          <span>&gt; Running tests <Check size={13} /></span>
-          <span>&gt; Building assets <Check size={13} /></span>
-          <strong>&gt; Build successful</strong>
-        </div>
-
-        <div className="build-progress">
-          <span>BUILD PROGRESS</span>
-          <div><motion.i style={{ scaleX: localProgress }} /></div>
-          <b>78%</b>
-        </div>
-      </div>
-    )
-  }
-
-  if (activeIndex === 2) {
-    return (
-      <div className="cinematic-annotations cinematic-annotations--branding">
-        <span className="brand-note brand-note--strategy">STRATEGY</span>
-        <span className="brand-note brand-note--voice">VOICE</span>
-        <span className="brand-note brand-note--system">SYSTEM</span>
-        <div className="brand-spectrum" />
-      </div>
-    )
-  }
+function CapabilityList({ service, compact = false }) {
+  const capabilities = useMemo(() => getCapabilities(service), [service])
+  const limit = compact ? 8 : 11
+  const visible = capabilities.slice(0, limit)
+  const hiddenCount = Math.max(0, capabilities.length - visible.length)
 
   return (
-    <div className="cinematic-annotations cinematic-annotations--marketing">
-      <span className="search-signal search-signal--one">SEARCH INTENT</span>
-      <span className="search-signal search-signal--two">AI VISIBILITY</span>
-      <span className="search-signal search-signal--three">ENTITY SIGNALS</span>
-      <div className="ranking-card"><b>+38%</b><span>ORGANIC VISIBILITY</span></div>
+    <div className="service-capabilities" aria-label={`${service.title} capabilities`}>
+      {visible.map((item, index) => (
+        <motion.span
+          key={`${service.number}-${item}`}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.32, delay: index * 0.025 }}
+        >
+          {item}
+        </motion.span>
+      ))}
+      {hiddenCount > 0 && <span className="service-capabilities__more">+{hiddenCount} more</span>}
     </div>
   )
 }
@@ -155,11 +95,11 @@ function MobileServices({ activeIndex, onSelect, sectionRef }) {
   return (
     <section className="cinematic-services cinematic-services--mobile" id="services" ref={sectionRef}>
       <div className="mobile-services">
-        <div className="mobile-services__eyebrow">
-          <span>OUR SERVICES</span>
-          <i aria-hidden="true" />
-          <small>DESIGN. BUILD. GROW.</small>
-        </div>
+        <header className="mobile-services__header">
+          <div className="mobile-services__eyebrow"><i /> OUR SERVICES</div>
+          <h2>Four disciplines.<br /><em>One connected system.</em></h2>
+          <p>Strategy, design and technology working as one — from first idea to measurable growth.</p>
+        </header>
 
         <nav className="mobile-services__tabs" aria-label="Choose a service">
           {services.map((item, index) => (
@@ -183,49 +123,30 @@ function MobileServices({ activeIndex, onSelect, sectionRef }) {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="mobile-services__copy">
-              <div className="mobile-services__number">
-                <span>{service.number}</span>
-                <i aria-hidden="true" />
+              <div className="mobile-services__meta">
+                <span>SERVICE {service.number}</span>
+                <small>{String(activeIndex + 1).padStart(2, '0')} / 04</small>
               </div>
 
               <div className="mobile-services__title-row">
-                <ServiceIcon size={17} />
-                <h2>{service.title}</h2>
+                <span className="mobile-services__icon"><ServiceIcon size={18} /></span>
+                <h3>{service.title}</h3>
               </div>
 
-              <span className="mobile-services__accent" />
-              <h3>{service.line}</h3>
-              <p>{service.details}</p>
+              <p className="mobile-services__line">{service.line}</p>
+              <CapabilityList service={service} compact />
             </div>
 
             <div className="mobile-services__visual" aria-hidden="true">
-              <ServiceRingCanvas
-                activeIndex={activeIndex}
-                scrollProgress={sceneProgress}
-              />
-            </div>
-
-            <div className="mobile-services__tools-wrap">
-              <span className="mobile-services__tools-label">{service.category}</span>
-              <div className="mobile-services__tools">
-                {service.tools.map((tool, index) => (
-                  <motion.button
-                    type="button"
-                    key={`${service.number}-${tool.id}-${tool.label}`}
-                    className="mobile-service-tool"
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.025 * index }}
-                    whileTap={{ scale: 0.97 }}
-                  >
-                    <span><ToolLogo id={tool.id} label={tool.label} /></span>
-                    <small>{tool.label}</small>
-                  </motion.button>
-                ))}
+              <div className="mobile-services__visual-head">
+                <span>LIVE SYSTEM</span>
+                <small>0{activeIndex + 1}</small>
               </div>
+              <span className="mobile-services__ghost-number">{service.number}</span>
+              <ServiceRingCanvas activeIndex={activeIndex} scrollProgress={sceneProgress} />
             </div>
           </motion.article>
         </AnimatePresence>
@@ -309,89 +230,83 @@ export default function RingLab() {
         <motion.div className="cinematic-services__top-progress" style={{ width: sectionProgress }} />
         <div className="cinematic-services__backdrop" />
 
-        <div className="cinematic-services__header">
-          <span>OUR SERVICES</span>
-          <i aria-hidden="true" />
-          <small>DESIGN. BUILD. GROW.</small>
-        </div>
+        <div className="cinematic-services__shell">
+          <header className="cinematic-services__header">
+            <div className="cinematic-services__eyebrow"><i /> OUR SERVICES</div>
+            <div className="cinematic-services__headline">
+              <h2>Four disciplines.<br /><em>One connected system.</em></h2>
+              <p>Strategy, design and technology working as one — from first idea to measurable growth.</p>
+            </div>
+            <div className="cinematic-services__counter">
+              <span>{String(activeIndex + 1).padStart(2, '0')}</span>
+              <i />
+              <small>04</small>
+            </div>
+          </header>
 
-        <div className="cinematic-services__card">
-          <AnimatePresence mode="wait">
-            <motion.div
-              className="cinematic-services__copy"
-              key={service.number}
-              initial={{ opacity: 0, y: 22, filter: 'blur(7px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              exit={{ opacity: 0, y: -16, filter: 'blur(6px)' }}
-              transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className="cinematic-services__index">
-                <span>{service.number}</span>
-                <i />
+          <div className="cinematic-services__workspace">
+            <div className="cinematic-services__visual">
+              <div className="cinematic-services__visual-head">
+                <span>LIVE SYSTEM / {service.mobileLabel.toUpperCase()}</span>
+                <small>INTERACTIVE 3D</small>
               </div>
+              <span className="cinematic-services__ghost-number">{service.number}</span>
+              <div className="cinematic-services__visual-orbit orbit-line--one" />
+              <div className="cinematic-services__visual-orbit orbit-line--two" />
+              <ServiceRingCanvas activeIndex={activeIndex} scrollProgress={smoothProgress} />
+              <StageAnnotations activeIndex={activeIndex} localProgress={localProgress} />
+              <div className="cinematic-services__visual-corners" aria-hidden="true"><i /><i /><i /><i /></div>
+              <div className="cinematic-services__center-label"><span>LEVELED SYSTEM</span><i /><small>0{activeIndex + 1} / 04</small></div>
+            </div>
 
-              <div className="cinematic-services__title-row">
-                <ServiceIcon size={19} />
-                <h2>{service.title}</h2>
-              </div>
-
-              <span className="cinematic-services__accent-line" />
-              <h3>{service.line}</h3>
-              <p>{service.details}</p>
-            </motion.div>
-          </AnimatePresence>
-
-          <div className="cinematic-services__visual">
-            <ServiceRingCanvas activeIndex={activeIndex} scrollProgress={smoothProgress} />
-            <StageAnnotations activeIndex={activeIndex} localProgress={localProgress} />
-          </div>
-
-          <div className="cinematic-services__tool-tray">
-            <span>{service.category}</span>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={service.number}
-                className="cinematic-services__tools"
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              >
-                {service.tools.map((tool, index) => (
-                  <motion.button
+            <nav className="services-constellation" aria-label="Service slides">
+              {services.map((item, index) => {
+                const Icon = item.icon
+                return (
+                  <button
                     type="button"
-                    key={`${service.number}-${tool.id}-${tool.label}`}
-                    className="cinematic-tool"
-                    initial={{ opacity: 0, scale: 0.82 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.04 + index * 0.045 }}
-                    whileHover={{ y: -6, scale: 1.04 }}
-                    whileTap={{ scale: 0.96 }}
+                    key={item.number}
+                    className={`service-node service-node--${index + 1} ${index === activeIndex ? 'is-active' : ''}`}
+                    onClick={() => jumpTo(index)}
+                    aria-current={index === activeIndex ? 'step' : undefined}
                   >
-                    <span><ToolLogo id={tool.id} label={tool.label} /></span>
-                    <small>{tool.label}</small>
-                  </motion.button>
-                ))}
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </div>
+                    <span className="service-node__number">{item.number}</span>
+                    <span className="service-node__icon"><Icon size={15} /></span>
+                    <span className="service-node__body">
+                      <strong>{item.title}</strong>
+                      <em>{item.line}</em>
+                    </span>
+                    <span className="service-node__line"><motion.i animate={{ scaleX: index === activeIndex ? localProgress : 0 }} /></span>
+                  </button>
+                )
+              })}
+            </nav>
 
-        <nav className="cinematic-services__nav" aria-label="Service slides">
-          {services.map((item, index) => (
-            <button
-              type="button"
-              key={item.number}
-              className={index === activeIndex ? 'is-active' : ''}
-              onClick={() => jumpTo(index)}
-              aria-current={index === activeIndex ? 'step' : undefined}
+            <motion.aside
+              className="service-focus-card"
+              key={service.number}
+              initial={{ opacity: 0, y: 18, filter: 'blur(5px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: .5, ease: [.22,1,.36,1] }}
             >
-              <span>{item.number}</span>
-              <b>{item.title}</b>
-              <i><motion.em animate={{ scaleX: index === activeIndex ? localProgress : 0 }} /></i>
-            </button>
-          ))}
-        </nav>
+              <div className="service-focus-card__top">
+                <span>SERVICE {service.number}</span>
+                <span>{String(activeIndex + 1).padStart(2, '0')} / 04</span>
+              </div>
+              <h3>{service.title}</h3>
+              <p>{service.line}</p>
+              <CapabilityList service={service} />
+            </motion.aside>
+          </div>
+
+          <footer className="cinematic-services__footer">
+            <span>SCROLL TO EXPLORE SERVICES</span>
+            <div className="cinematic-services__steps" aria-hidden="true">
+              {services.map((item, index) => <i key={item.number} className={index <= activeIndex ? 'is-on' : ''} />)}
+            </div>
+            <small>DESIGN → BUILD → BRAND → GROW</small>
+          </footer>
+        </div>
       </div>
     </section>
   )

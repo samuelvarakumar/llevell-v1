@@ -11,7 +11,6 @@ export default function Hero() {
   })
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 90, damping: 24, mass: 0.5 })
   const opacity = useTransform(smoothProgress, [0, 0.82], [1, 0.12])
-  const badgeY = useTransform(smoothProgress, [0, 1], [0, -55])
 
   return (
     <section className="hero hero--logo-magic" id="overview" ref={ref}>
@@ -46,57 +45,57 @@ export default function Hero() {
           <LogoCanvas scrollProgress={smoothProgress} cameraZ={7.4} />
         </div>
 
-        <motion.div className="hero-logo-badge" style={{ y: badgeY }}>
-          <span>14</span>
-          <small>signal cells<br />one system</small>
-        </motion.div>
 
         <motion.aside
           className="hero-system-tag hero-system-tag--build"
-          initial={{ opacity: 0, x: -22, rotate: -4 }}
-          animate={{ opacity: 1, x: 0, rotate: -2 }}
+          initial={{ opacity: 0, x: -22, rotate: -3.4 }}
+          animate={{ opacity: 1, x: 0, rotate: -1.8 }}
           transition={{ duration: .8, delay: .7, ease: [0.22, 1, 0.36, 1] }}
           aria-label="LLeveLL build signal: strategy, design, development and growth"
         >
-          <div className="hero-system-tag__topline">
-            <span>BUILD SIGNAL</span>
-            <i className="hero-system-tag__live" aria-hidden="true" />
-          </div>
-          <div className="hero-build-track" aria-hidden="true">
-            <span>STRATEGY</span>
-            <b />
-            <span>DESIGN</span>
-            <b />
-            <span>BUILD</span>
-            <b />
-            <span>GROW</span>
-            <i className="hero-build-track__pulse" />
+          <div className="hero-system-tag__panel">
+            <div className="hero-system-tag__topline">
+              <span>BUILD SIGNAL</span>
+              <i className="hero-system-tag__live" aria-hidden="true" />
+            </div>
+            <div className="hero-build-track" aria-hidden="true">
+              <span>STRATEGY</span>
+              <b />
+              <span>DESIGN</span>
+              <b />
+              <span>BUILD</span>
+              <b />
+              <span>GROW</span>
+              <i className="hero-build-track__pulse" />
+            </div>
           </div>
         </motion.aside>
 
         <motion.aside
           className="hero-system-tag hero-system-tag--ai"
-          initial={{ opacity: 0, x: 22, rotate: 4 }}
-          animate={{ opacity: 1, x: 0, rotate: 2 }}
+          initial={{ opacity: 0, x: 22, rotate: 4.1 }}
+          animate={{ opacity: 1, x: 0, rotate: 2.5 }}
           transition={{ duration: .8, delay: .82, ease: [0.22, 1, 0.36, 1] }}
           aria-label="LLeveLL combines human judgement with AI velocity"
         >
-          <div className="hero-system-tag__topline">
-            <span>HUMAN × AI</span>
-            <small>LIVE STACK</small>
-          </div>
-          <div className="hero-ai-stack" aria-hidden="true">
-            <div>
-              <span>H</span>
-              <small>JUDGEMENT</small>
+          <div className="hero-system-tag__panel">
+            <div className="hero-system-tag__topline">
+              <span>HUMAN × AI</span>
+              <small>LIVE STACK</small>
             </div>
-            <i>+</i>
-            <div>
-              <span>AI</span>
-              <small>VELOCITY</small>
+            <div className="hero-ai-stack" aria-hidden="true">
+              <div>
+                <span>H</span>
+                <small>JUDGEMENT</small>
+              </div>
+              <i>+</i>
+              <div>
+                <span>AI</span>
+                <small>VELOCITY</small>
+              </div>
             </div>
+            <div className="hero-ai-stack__status"><i /> THINK FASTER. BUILD SMARTER.</div>
           </div>
-          <div className="hero-ai-stack__status"><i /> THINK FASTER. BUILD SMARTER.</div>
         </motion.aside>
 
       </motion.div>
