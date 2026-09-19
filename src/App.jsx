@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useLenis } from 'lenis/react'
 import Header from './components/Header'
 import Hero from './sections/Hero'
+import StudioFilm from './sections/StudioFilm'
 import SignalStory from './sections/SignalStory'
 import RingLab from './sections/RingLab'
 import Accuracy from './sections/Accuracy'
@@ -73,6 +74,7 @@ export default function App() {
 
       <main>
         <Hero onShop={openApps} />
+        <StudioFilm active={!loading && !appsOpen && !contactOpen && !signalOpen} />
         <SignalStory />
         <RingLab />
         <Accuracy />

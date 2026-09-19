@@ -114,7 +114,7 @@ export default function Header({ onApps, appsOpen = false, onContact, contactOpe
         return
       }
 
-      const nextSection = document.getElementById('fitness')
+      const nextSection = document.getElementById('studio-film') || document.getElementById('fitness')
       const nextSectionTop = nextSection
         ? nextSection.getBoundingClientRect().top
         : window.innerHeight

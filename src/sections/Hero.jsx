@@ -100,7 +100,7 @@ export default function Hero() {
 
       </motion.div>
 
-      <a className="scroll-cue" href="#fitness">
+      <a className="scroll-cue" href="#studio-film">
         <ArrowDown size={18} /> Scroll to explore
       </a>
     </section>
