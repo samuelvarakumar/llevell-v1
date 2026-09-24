@@ -4,12 +4,71 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f3f1ea" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="description" content="LLeveLL — intelligent health insights, worn quietly." />
     <title>LLeveLL — Intelligent health, worn quietly</title>
-  </head>
+    <link rel="icon" type="image/png" href="/llevell-favicon-source.png" />
+</head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-  </body>
+  
+<script>
+(() => {
+  const source = "/llevell-favicon-source.png";
+  const img = new Image();
+  img.src = source;
+
+  const canvas = document.createElement('canvas');
+  canvas.width = 64;
+  canvas.height = 64;
+  const ctx = canvas.getContext('2d');
+
+  let favicon = document.querySelector('link[rel="icon"]');
+  if (!favicon) {
+    favicon = document.createElement('link');
+    favicon.rel = 'icon';
+    document.head.appendChild(favicon);
+  }
+
+  const reduceMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  img.onload = () => {
+    if (reduceMotion) return;
+
+    let frame = 0;
+    const totalFrames = 48;
+    const fps = 12;
+
+    const render = () => {
+      const t = (frame % totalFrames) / totalFrames;
+      // Subtle breathing + tiny rotational drift; returns cleanly to start.
+      const pulse = 0.88 + 0.08 * (0.5 + 0.5 * Math.sin(t * Math.PI * 2));
+      const angle = Math.sin(t * Math.PI * 2) * 0.10;
+
+      ctx.clearRect(0, 0, 64, 64);
+      ctx.save();
+      ctx.translate(32, 32);
+      ctx.rotate(angle);
+      ctx.scale(pulse, pulse);
+
+      const max = 54;
+      const ratio = Math.min(max / img.naturalWidth, max / img.naturalHeight);
+      const w = img.naturalWidth * ratio;
+      const h = img.naturalHeight * ratio;
+      ctx.drawImage(img, -w / 2, -h / 2, w, h);
+      ctx.restore();
+
+      favicon.type = 'image/png';
+      favicon.href = canvas.toDataURL('image/png');
+      frame++;
+    };
+
+    render();
+    window.setInterval(render, 1000 / fps);
+  };
+})();
+</script>
+
+</body>
 </html>
