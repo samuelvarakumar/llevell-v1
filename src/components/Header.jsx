@@ -239,9 +239,11 @@ export default function Header({ onApps, appsOpen = false, onContact, contactOpe
 
             <div className="sensiq-panel-spacer" />
 
+            {/* Apps launcher hidden temporarily — code preserved for re-enable later.
             <button className={`sensiq-apps-button ${appsOpen ? 'sensiq-apps-button--active' : ''}`} type="button" onClick={openApps} aria-label="Open our apps" aria-expanded={appsOpen}>
               <span className="sensiq-apps-icon"><AppsIcon /></span>
             </button>
+            */}
 
             <button className="sensiq-shop-button" type="button" onClick={openContact} aria-label="Start something with LLeveLL" aria-expanded={contactOpen}>
               <span>Start Something</span>
@@ -262,6 +264,7 @@ export default function Header({ onApps, appsOpen = false, onContact, contactOpe
         </div>
       </header>
 
+      {/* Comic-style Apps dialogue hint hidden temporarily — code preserved.
       <div
         className={`sensiq-apps-comic-hint ${showAppsHint ? 'sensiq-apps-comic-hint--visible' : ''}`}
         aria-hidden={!showAppsHint}
@@ -271,6 +274,7 @@ export default function Header({ onApps, appsOpen = false, onContact, contactOpe
           Tap the 4 squares<br />to explore our apps.
         </span>
       </div>
+      */}
 
       <div className={`sensiq-mobile-menu ${menuOpen ? 'sensiq-mobile-menu--open' : ''}`} aria-hidden={!menuOpen}>
         <div className="sensiq-mobile-menu-head">
@@ -290,6 +294,7 @@ export default function Header({ onApps, appsOpen = false, onContact, contactOpe
         </nav>
 
         <div className="sensiq-mobile-actions">
+          {/* Mobile Apps launcher hidden temporarily — code preserved.
           <button
             className="sensiq-mobile-shop"
             type="button"
@@ -301,6 +306,7 @@ export default function Header({ onApps, appsOpen = false, onContact, contactOpe
             <span>Our apps</span>
             <span className="sensiq-mobile-apps-icon"><AppsIcon /></span>
           </button>
+          */}
 
           <button
             className="sensiq-mobile-contact"

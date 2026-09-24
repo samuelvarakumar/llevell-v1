@@ -85,7 +85,9 @@ export default function App() {
       </main>
 
       <Footer />
+      {/* Apps showcase hidden temporarily — component/import/state kept intact for later.
       <AppsShowcase open={appsOpen} onClose={() => setAppsOpen(false)} />
+      */}
       <ContactPanel open={contactOpen} onClose={() => setContactOpen(false)} />
       <SignalChat
         open={signalOpen}

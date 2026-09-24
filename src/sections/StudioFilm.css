@@ -31,8 +31,10 @@
 .studio-film__copy h2 { margin: 0; font: 400 clamp(52px, 6.8vw, 108px)/.94 'Manrope', sans-serif; letter-spacing: -.065em; }
 .studio-film__copy h2 em { font-family: 'Montserrat Alternates', sans-serif; font-size: .88em; font-weight: 400; letter-spacing: -.065em; }
 .studio-film__copy p { margin: 28px 0 0; color: var(--film-muted); font-size: 1rem; line-height: 1.5; }
-.studio-film__aperture { position: absolute; inset: 0; overflow: hidden; background: #11150f; will-change: clip-path; }
-.studio-film__video { display: block; width: 100%; height: 100%; object-fit: contain; background: #11150f; }
+.studio-film__aperture { position: absolute; overflow: hidden; background: #11150f; will-change: top, right, bottom, left, border-radius; }
+.studio-film__video { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; background: #11150f; transition: transform .45s ease; }
+/* Keep the complete film visible while the aperture is a capsule. Once the scroll reveal is complete, fill the expanded stage edge-to-edge. */
+.studio-film__video--fill { object-fit: cover; }
 .studio-film__open { position: absolute; right: 6%; bottom: 12%; display: inline-flex; align-items: center; gap: 24px; padding: 10px 0; min-height: 44px; border: 0; border-bottom: 1px solid var(--film-line); background: transparent; color: var(--film-ink); font-size: .9375rem; }
 .studio-film__open svg { transition: transform .25s ease; }
 .studio-film__open:hover svg { transform: translate(3px, -3px); }
@@ -68,7 +70,7 @@ html.llevell-cursor-active #studio-film input.studio-film__scrubber[type='range'
 
 .studio-film__cinema:fullscreen { --film-ink: #eff4e9; --film-muted: #a5af9d; --film-line: #aab99b40; position: relative; top: 0; width: 100%; height: 100%; max-height: none; padding: 18px 32px; background: #080a07; color: var(--film-ink); }
 .studio-film__cinema:fullscreen .studio-film__copy, .studio-film__cinema:fullscreen .studio-film__open, .studio-film__cinema:fullscreen .studio-film__bottomline a { display: none; }
-.studio-film__cinema:fullscreen .studio-film__aperture { clip-path: inset(0) !important; }
+.studio-film__cinema:fullscreen .studio-film__aperture { inset: 0 !important; border-radius: 0 !important; }
 .studio-film__cinema:fullscreen button:focus-visible, .studio-film__cinema:fullscreen input:focus-visible { outline-color: #c8ff45; }
 .studio-film__cinema:fullscreen button:hover { color: #c8ff45; }
 
@@ -88,7 +90,7 @@ html.llevell-cursor-active #studio-film input.studio-film__scrubber[type='range'
   .studio-film__copy h2 br { display: none; }
   .studio-film__copy h2 em::before { content: ' '; }
   .studio-film__copy p { margin-top: 18px; }
-  .studio-film__aperture { position: relative; aspect-ratio: 16 / 9; clip-path: inset(0 round 12px) !important; will-change: auto; }
+  .studio-film__aperture { position: relative; inset: auto !important; aspect-ratio: 16 / 9; border-radius: 12px !important; will-change: auto; }
   .studio-film__open { display: none; }
   .studio-film__transport { gap: 12px; flex-wrap: wrap; min-height: 68px; padding-block: 4px; }
   .studio-film__transport .studio-film__play { padding-right: 0; }
@@ -118,7 +120,7 @@ html.llevell-cursor-active #studio-film input.studio-film__scrubber[type='range'
   .studio-film { height: auto; padding-bottom: 50px; }
   .studio-film__cinema { position: relative; top: auto; height: auto; min-height: 0; }
   .studio-film__stage { min-height: 360px; }
-  .studio-film__aperture { clip-path: inset(0 round 18px) !important; }
+  .studio-film__aperture { inset: auto !important; border-radius: 18px !important; }
   .studio-film__copy, .studio-film__open { display: none; }
   .studio-film__cinema:fullscreen { height: 100%; }
   .studio-film__cinema:fullscreen .studio-film__stage { min-height: 0; }

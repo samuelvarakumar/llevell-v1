@@ -5,7 +5,7 @@ export const studioFilm = {
   poster: '/media/studio-reel-poster.jpg',
   title: 'LLeveLL studio reel',
   description: 'A silent reel of the existing Verdant, Remedia, Kalyani Mudumba and ASR project previews, with the phrases Ideas. Made real.; Clarity. By design.; Character. In every detail.; and One studio. Many possibilities.',
-  hasAudio: false,
+  hasAudio: true,
   loop: true,
   // For a film with spoken audio, add a WebVTT file and set hasAudio to true.
   captions: '',

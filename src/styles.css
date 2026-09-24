@@ -6998,6 +6998,25 @@ html.lenis body {
   pointer-events: none;
 }
 
+.footer-contact {
+  position: absolute;
+  z-index: 4;
+  right: clamp(16px, 2vw, 34px);
+  bottom: clamp(14px, 1.7vw, 26px);
+  font-size: 11px;
+  letter-spacing: .07em;
+  line-height: 1.4;
+}
+
+.footer-contact a {
+  color: rgba(5,5,5,.66);
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  color: #050505;
+}
+
 .footer-copyright {
   position: absolute;
   z-index: 4;
@@ -7034,6 +7053,12 @@ html.lenis body {
 
   .footer-copyright {
     left: 14px;
+    bottom: 12px;
+    font-size: 10px;
+  }
+
+  .footer-contact {
+    right: 14px;
     bottom: 12px;
     font-size: 10px;
   }
@@ -9242,4 +9267,53 @@ html.llevell-cursor-active input[type="radio"] {
   .mobile-services__line { color:#686d64; }
   .mobile-services .service-capabilities > span { color:#777b72; border-color:rgba(20,24,18,.1); background:rgba(255,255,255,.38); }
   .mobile-services__visual { border-top-color:rgba(20,24,18,.1); background:radial-gradient(circle at 50% 48%, rgba(200,255,69,.16), transparent 34%); }
+}
+
+/* =========================================================
+   SOFT HERO → STUDIO TRANSITION
+   Prevent the 3D logo hero lighting from ending on a hard edge.
+   The fade stays inside the hero so it does not block StudioFilm UI.
+   ========================================================= */
+.hero--logo-magic::after {
+  content: '';
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: clamp(180px, 22vw, 320px);
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(242, 240, 233, 0) 0%,
+    rgba(242, 240, 233, 0.16) 26%,
+    rgba(242, 240, 233, 0.52) 58%,
+    rgba(242, 240, 233, 0.86) 82%,
+    var(--paper, #f2f0e9) 100%
+  );
+}
+
+@media (max-width: 760px) {
+  .hero--logo-magic::after {
+    height: 180px;
+  }
+}
+
+/* Contact details: email + phone side by side */
+.final-cta-contact {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2vw, 34px);
+  flex-wrap: wrap;
+}
+.final-cta-contact a {
+  white-space: nowrap;
+}
+@media(max-width:650px){
+  .final-cta-contact {
+    gap: 12px 20px;
+  }
+  .final-cta-contact a {
+    font-size: 17px;
+  }
 }

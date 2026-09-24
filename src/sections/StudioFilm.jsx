@@ -17,6 +17,7 @@ export default function StudioFilm({ active = true }) {
   const sectionRef = useRef(null)
   const cinemaRef = useRef(null)
   const videoRef = useRef(null)
+  const autoSoundAttemptedRef = useRef(false)
   const reducedMotion = useReducedMotion()
   const [compact, setCompact] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 760px)').matches)
   const [saveData, setSaveData] = useState(false)
@@ -39,7 +40,13 @@ export default function StudioFilm({ active = true }) {
 
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end end'] })
   const progress = useSpring(scrollYProgress, { stiffness: 85, damping: 27, mass: .5 })
-  const aperture = useTransform(progress, [0, .62], ['inset(27% 5% 27% 52% round 160px)', 'inset(0% 0% 0% 0% round 18px)'])
+  // Grow the actual video frame with scroll instead of cropping a full-size video through a clip-path.
+  // This keeps the complete film visible in the initial capsule and lets the film scale with the frame.
+  const apertureTop = useTransform(progress, [0, .62], ['27%', '0%'])
+  const apertureRight = useTransform(progress, [0, .62], ['5%', '0%'])
+  const apertureBottom = useTransform(progress, [0, .62], ['27%', '0%'])
+  const apertureLeft = useTransform(progress, [0, .62], ['52%', '0%'])
+  const apertureRadius = useTransform(progress, [0, .62], ['160px', '18px'])
   const copyOpacity = useTransform(progress, [0, .35], [1, 0])
   const copyY = useTransform(progress, [0, .4], [0, -26])
   const open = expanded || compact || reducedMotion || fullscreen
@@ -124,6 +131,39 @@ export default function StudioFilm({ active = true }) {
     }
   }, [captionsEnabled])
 
+  // Keep the capsule/expansion silent, then try to bring in the reel's audio
+  // once the scroll reveal is fully open. Browsers can still require a click
+  // before allowing audible playback, so the existing sound button remains
+  // available as a reliable fallback.
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video || !studioFilm.hasAudio) return
+
+    if (!revealComplete) {
+      autoSoundAttemptedRef.current = false
+      if (!video.muted) {
+        video.muted = true
+        setMuted(true)
+      }
+      return
+    }
+
+    if (!visible || !playing || autoSoundAttemptedRef.current) return
+    autoSoundAttemptedRef.current = true
+    video.muted = false
+    setMuted(false)
+
+    const playback = video.play()
+    if (playback?.catch) {
+      playback.catch((error) => {
+        if (error.name === 'AbortError') return
+        video.muted = true
+        setMuted(true)
+        setStatus('Film is fully open — tap the sound icon to enable audio.')
+      })
+    }
+  }, [revealComplete, visible, playing])
+
   const play = () => {
     setShouldLoad(true)
     setUserPaused(false)
@@ -173,9 +213,20 @@ export default function StudioFilm({ active = true }) {
   }
 
   const toggleSound = () => {
-    const next = !muted
-    if (videoRef.current) videoRef.current.muted = next
+    const video = videoRef.current
+    if (!video) return
+    const next = !video.muted
+    video.muted = next
     setMuted(next)
+    setStatus(next ? 'Sound muted.' : '')
+    if (!next) {
+      setShouldLoad(true)
+      setUserPaused(false)
+      setUserStarted(true)
+      video.play().catch((error) => {
+        if (error.name !== 'AbortError') setStatus('Press play, then tap sound on.')
+      })
+    }
   }
 
   const retry = () => {
@@ -205,11 +256,16 @@ export default function StudioFilm({ active = true }) {
             <p>A glimpse of what we make.</p>
           </motion.div>
 
-          <motion.div className="studio-film__aperture" style={{ clipPath: open || mediaError ? 'inset(0% 0% 0% 0% round 18px)' : aperture }}>
+          <motion.div
+            className="studio-film__aperture"
+            style={compact || reducedMotion || open || mediaError
+              ? { top: 0, right: 0, bottom: 0, left: 0, borderRadius: '18px' }
+              : { top: apertureTop, right: apertureRight, bottom: apertureBottom, left: apertureLeft, borderRadius: apertureRadius }}
+          >
             <video
               ref={videoRef}
               id="studio-reel-video"
-              className="studio-film__video"
+              className={`studio-film__video${revealComplete ? ' studio-film__video--fill' : ''}`}
               src={shouldLoad ? studioFilm.src : undefined}
               poster={studioFilm.poster}
               preload={saveData ? 'none' : 'metadata'}

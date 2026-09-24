@@ -14,9 +14,21 @@
 .ll-ai__shell { width: min(1440px, calc(100% - 10vw)); margin: 0 auto; }
 .ll-ai__eyebrow { display: flex; justify-content: space-between; gap: 24px; margin-bottom: 42px; color: var(--lens-muted); font-size: .75rem; letter-spacing: .14em; }
 .ll-ai__eyebrow span:last-child { text-align: right; }
-.ll-ai__intro h2 { margin: 0; font: 400 clamp(42px, 5.4vw, 84px)/1.08 'Manrope', sans-serif; letter-spacing: -.065em; }
+.ll-ai__intro h2 { margin: 0; font: 400 clamp(48px, 6.3vw, 96px)/.96 'Manrope', sans-serif; letter-spacing: -.075em; }
 .ll-ai__intro h2 > span, .ll-ai__intro h2 > em { display: block; }
-.ll-ai__intro h2 > em { margin-top: 8px; color: #aaafa4; font-family: 'Montserrat Alternates', sans-serif; font-size: .82em; font-weight: 400; letter-spacing: -.06em; }
+.ll-ai__intro h2 > span { color: var(--lens-text); }
+.ll-ai__intro h2 > em {
+  margin-top: 6px;
+  color: transparent;
+  font-family: 'Manrope', sans-serif;
+  font-size: .9em;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.075em;
+  -webkit-text-stroke: 1.35px rgba(245, 245, 240, .9);
+  paint-order: stroke fill;
+}
 .ll-ai__intro-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 48px; margin-top: 34px; }
 .ll-ai__intro-row > p { max-width: 600px; margin: 0; color: var(--lens-muted); font-size: 1rem; line-height: 1.75; }
 .ll-ai__intro-row > span { flex-shrink: 0; padding-left: 24px; border-left: 1px solid var(--lens-line); color: var(--lens-muted); font-size: .875rem; line-height: 1.7; }
@@ -159,8 +171,8 @@
 @media (max-width: 700px) {
   .ll-ai__shell { width: calc(100% - 36px); }
   .ll-ai__eyebrow { margin-bottom: 28px; font-size: .75rem; gap: 20px; line-height: 1.6; }
-  .ll-ai__intro h2 { font-size: clamp(38px, 8.3vw, 56px); line-height: 1.1; }
-  .ll-ai__intro h2 > em { margin-top: 14px; font-size: .9em; line-height: 1.13; }
+  .ll-ai__intro h2 { font-size: clamp(42px, 10.5vw, 64px); line-height: .98; }
+  .ll-ai__intro h2 > em { margin-top: 10px; font-size: .82em; line-height: 1.04; -webkit-text-stroke-width: 1px; }
   .ll-ai__intro-row { margin-top: 26px; }
   .ll-lens__masthead { display: block; padding: 28px 0 24px; }
   .ll-lens__masthead h3 { gap: 16px; }
